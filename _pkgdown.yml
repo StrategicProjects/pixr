@@ -1,0 +1,155 @@
+url: https://monitoramento.pe.gov.br/pixr
+
+template:
+  bootstrap: 5
+  bootswatch: flatly
+  bslib:
+    primary: "#008060"
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Roboto Slab"}
+    code_font: {google: "JetBrains Mono"}
+
+home:
+  title: pixr - Brazilian Central Bank PIX Open Data API for R
+  description: >
+    A tidyverse-style R package to access PIX statistics from the Brazilian
+    Central Bank (BCB) Open Data API. Retrieve data on PIX keys, transactions
+    by municipality, transaction statistics, and fraud data. Supports OData
+    filters for flexible querying.
+  
+  links:
+    - text: BCB PIX Open Data Portal
+      href: https://dadosabertos.bcb.gov.br/dataset/pix
+    - text: API Swagger Documentation
+      href: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/swagger-ui3#/
+    - text: BCB Pix Official Page
+      href: https://www.bcb.gov.br/estabilidadefinanceira/pix
+
+authors:
+  Andre Leite:
+    href: https://github.com/milkway
+  Marcos Wasilew:
+    href: https://github.com/marcoswasiliew
+  Hugo Vasconcelos:
+    href: https://github.com/hugoavmedeiros
+  Diogo Bezerra:
+    href: https://github.com/DiCarvalhoB
+
+navbar:
+  structure:
+    left: [intro, reference, articles, news]
+    right: [search, github]
+  
+  components:
+    intro:
+      text: Get Started
+      href: articles/pixr.html
+    
+    articles:
+      text: Articles
+      menu:
+        - text: "Introduction to pixr"
+          href: articles/pixr.html
+        - text: "Understanding PIX Data"
+          href: articles/understanding-pix-data.html
+        - text: "Working with OData Queries"
+          href: articles/odata-queries.html
+        - text: "---"
+        - text: "Data Analysis Examples"
+          href: articles/analysis-examples.html
+    
+    reference:
+      text: Reference
+      href: reference/index.html
+    
+    news:
+      text: Changelog
+      href: news/index.html
+
+reference:
+  - title: "PIX Keys Data"
+    desc: >
+      Functions to retrieve PIX keys statistics from the DICT (Directory of
+      Transactional Account Identifiers).
+    contents:
+      - get_pix_keys
+      - get_pix_keys_summary
+      - get_pix_keys_by_type
+  
+  - title: "PIX Transactions by Municipality"
+    desc: >
+      Functions to retrieve PIX transaction statistics aggregated by
+      municipality, state, or region.
+    contents:
+      - get_pix_transactions_by_municipality
+      - get_pix_transactions_by_state
+      - get_pix_transactions_by_region
+  
+  - title: "PIX Transaction Statistics"
+    desc: >
+      Functions to retrieve detailed PIX transaction statistics with
+      breakdowns by type, region, and demographics.
+    contents:
+      - get_pix_transaction_stats
+      - get_pix_summary
+      - get_pix_transaction_stats_multi
+  
+  - title: "PIX Fraud Statistics"
+    desc: >
+      Functions to retrieve PIX fraud statistics from the Special Return
+      Mechanism (MED).
+    contents:
+      - get_pix_fraud_stats
+      - get_pix_fraud_stats_multi
+  
+  - title: "API Utilities"
+    desc: >
+      Utility functions for working with the BCB PIX Open Data API,
+      including connection testing, custom queries, and debugging.
+    contents:
+      - pix_ping
+      - pix_query
+      - pix_url
+      - pix_endpoints
+      - pix_columns
+      - pix_timeout
+  
+  - title: "Data Helpers"
+    desc: >
+      Helper functions for data transformation and formatting.
+    contents:
+      - year_month_to_date
+      - format_brl
+
+footer:
+  structure:
+    left: developed_by
+    right: built_with
+  
+  components:
+    developed_by: >
+      Developed by [A. Leite](https://github.com/milkway), [M. Wasilew](https://github.com/marcoswasiliew), [H. Vasconcelos](https://github.com/hugoavmedeiros), and [D. Bezerra](ttps://github.com/DiCarvalhoB).
+      Data provided by [Brazilian Central Bank](https://www.bcb.gov.br/).
+
+  
+
+news:
+  one_page: true
+  cran_dates: false
+
+articles:
+  - title: Getting Started
+    navbar: ~
+    contents:
+      - pixr
+  
+  - title: Deep Dives
+    desc: In-depth guides for specific topics
+    contents:
+      - understanding-pix-data
+      - odata-queries
+  
+  - title: Examples
+    desc: Practical examples and use cases
+    contents:
+      - analysis-examples
