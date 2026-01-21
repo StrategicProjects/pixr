@@ -76,9 +76,11 @@ pix_request <- function(endpoint,
       }
     }
   }
-  
-  # Add optional OData query parameters (NOT encoded)
+
   if (!is.null(filter) && nzchar(filter)) {
+    # Remove espaços após vírgulas e parênteses em funções OData
+    filter <- gsub(",\\s+", ",", filter)
+    filter <- gsub("\\(\\s+", "(", filter)
     query_parts <- c(query_parts, paste0("$filter=", filter))
   }
   
