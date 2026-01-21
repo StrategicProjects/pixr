@@ -70,9 +70,9 @@ Character string with the full API URL.
 ``` r
 # See what URL would be called for each endpoint
 pix_url("ChavesPix", params = list(Data = "2025-12-01"), top = 10)
-#> [1] "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/ChavesPix%28Data%3D%40Data%29?%24format=json&%40Data=%272025-12-01%27&%24top=10"
+#> [1] "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/ChavesPix(Data=@Data)?$format=json&@Data='2025-12-01'&$top=10"
 pix_url("EstatisticasTransacoesPix", params = list(Database = "202509"), top = 10)
-#> [1] "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix%28Database%3D%40Database%29?%24format=json&%40Database=%27202509%27&%24top=10"
+#> [1] "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'&$top=10"
 pix_url("TransacoesPixPorMunicipio", params = list(DataBase = "202512"), top = 10)
-#> [1] "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio%28DataBase%3D%40DataBase%29?%24format=json&%40DataBase=%27202512%27&%24top=10"
+#> [1] "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'&$top=10"
 ```

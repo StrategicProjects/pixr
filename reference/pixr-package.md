@@ -69,10 +69,18 @@ using:
 
 Useful links:
 
-- <https://github.com/yourname/pixr>
+- <https://github.com/StrategicProjects/pixr>
 
-- Report bugs at <https://github.com/yourname/pixr/issues>
+- Report bugs at <https://github.com/StrategicProjects/pixr/issues>
 
 ## Author
 
-**Maintainer**: Your Name <your.email@example.com>
+**Maintainer**: Andre Leite <leite@castlab.org>
+
+Authors:
+
+- Marcos Wasilew <marcos.wasilew@gmail.com>
+
+- Hugo Vasconcelos <hugo.vasconcelos@ufpe.br>
+
+- Diogo Bezerra <diogo.bezerra@ufpe.br>
