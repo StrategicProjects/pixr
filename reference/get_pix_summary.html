@@ -81,16 +81,55 @@ data to retrieve. This parameter is <strong>required</strong>.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co"># It usually takes much longer than 5 seconds.</span></span></span>
 <span class="r-in"><span><span class="co"># Summary by transaction nature</span></span></span>
 <span class="r-in"><span><span class="fu">get_pix_summary</span><span class="op">(</span>database <span class="op">=</span> <span class="st">"202509"</span>, group_by <span class="op">=</span> <span class="st">"NATUREZA"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Summary by payer region</span></span></span>
 <span class="r-in"><span><span class="fu">get_pix_summary</span><span class="op">(</span>database <span class="op">=</span> <span class="st">"202509"</span>, group_by <span class="op">=</span> <span class="st">"PAG_REGIAO"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Transaction Summary</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Transaction Statistics</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&amp;@Database='202509'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Retrieved 53191 records</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Aggregated into 6 groups</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   PAG_REGIAO    total_value total_count avg_value n_records</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> SUDESTE           6.13<span style="color: #949494;">e</span>12 <span style="text-decoration: underline;">11</span>136<span style="text-decoration: underline;">043</span>385      551.      <span style="text-decoration: underline;">9</span>752</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> SUL               1.78<span style="color: #949494;">e</span>12  <span style="text-decoration: underline;">3</span>160<span style="text-decoration: underline;">524</span>159      563.      <span style="text-decoration: underline;">8</span>720</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> NORDESTE          1.66<span style="color: #949494;">e</span>12  <span style="text-decoration: underline;">7</span>095<span style="text-decoration: underline;">875</span>693      234.      <span style="text-decoration: underline;">9</span>534</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> CENTRO-OESTE      9.92<span style="color: #949494;">e</span>11  <span style="text-decoration: underline;">2</span>184<span style="text-decoration: underline;">740</span>818      454.      <span style="text-decoration: underline;">8</span>980</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> NORTE             5.93<span style="color: #949494;">e</span>11  <span style="text-decoration: underline;">2</span>546<span style="text-decoration: underline;">883</span>325      233.      <span style="text-decoration: underline;">9</span>033</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> Nao informado     1.50<span style="color: #949494;">e</span>10    21<span style="text-decoration: underline;">745</span>840      692.      <span style="text-decoration: underline;">7</span>172</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Summary by nature and initiation method</span></span></span>
 <span class="r-in"><span><span class="fu">get_pix_summary</span><span class="op">(</span>database <span class="op">=</span> <span class="st">"202509"</span>, group_by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NATUREZA"</span>, <span class="st">"FORMAINICIACAO"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Transaction Summary</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Transaction Statistics</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&amp;@Database='202509'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Retrieved 53191 records</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Aggregated into 60 groups</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 60 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    NATUREZA FORMAINICIACAO total_value total_count avg_value n_records</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> B2B      MANU               3.29<span style="color: #949494;">e</span>12   309<span style="text-decoration: underline;">752</span>158   <span style="text-decoration: underline;">10</span>608.        150</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> P2P      DICT               2.27<span style="color: #949494;">e</span>12  <span style="text-decoration: underline;">7</span>244<span style="text-decoration: underline;">649</span>589     313.       <span style="text-decoration: underline;">6</span>378</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> B2B      DICT               1.80<span style="color: #949494;">e</span>12   253<span style="text-decoration: underline;">233</span>949    <span style="text-decoration: underline;">7</span>096.        144</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> B2P      DICT               9.91<span style="color: #949494;">e</span>11  <span style="text-decoration: underline;">1</span>899<span style="text-decoration: underline;">866</span>271     522.        942</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> P2B      QRDN               6.21<span style="color: #949494;">e</span>11  <span style="text-decoration: underline;">9</span>540<span style="text-decoration: underline;">673</span>851      65.1      <span style="text-decoration: underline;">2</span>233</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> P2P      MANU               6.15<span style="color: #949494;">e</span>11  <span style="text-decoration: underline;">2</span>219<span style="text-decoration: underline;">072</span>261     277.       <span style="text-decoration: underline;">5</span>599</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> P2B      DICT               4.71<span style="color: #949494;">e</span>11   746<span style="text-decoration: underline;">199</span>559     632.       <span style="text-decoration: underline;">1</span>032</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> B2P      MANU               3.62<span style="color: #949494;">e</span>11   323<span style="text-decoration: underline;">488</span>247    <span style="text-decoration: underline;">1</span>118.        883</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> B2B      QRDN               2.14<span style="color: #949494;">e</span>11   318<span style="text-decoration: underline;">512</span>083     671.        293</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> P2B      QRES               1.47<span style="color: #949494;">e</span>11  <span style="text-decoration: underline;">1</span>048<span style="text-decoration: underline;">823</span>015     140.       <span style="text-decoration: underline;">1</span>444</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 50 more rows</span></span>
+<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

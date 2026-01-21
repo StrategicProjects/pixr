@@ -115,7 +115,7 @@ different parameters:</p><ul><li><p>ChavesPix: <code>list(Data = "YYYY-MM-DD")</
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co"># It usually takes much longer than 5 seconds.</span></span></span>
 <span class="r-in"><span><span class="co"># Custom query for keys</span></span></span>
 <span class="r-in"><span><span class="fu">pix_query</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  endpoint <span class="op">=</span> <span class="st">"ChavesPix"</span>,</span></span>
@@ -129,7 +129,28 @@ different parameters:</p><ul><li><p>ChavesPix: <code>list(Data = "YYYY-MM-DD")</
 <span class="r-in"><span>  params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Database <span class="op">=</span> <span class="st">"202509"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  top <span class="op">=</span> <span class="fl">10</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Custom PIX API Query</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Endpoint: EstatisticasTransacoesPix</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&amp;@Database='202509'&amp;$top=10</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Retrieved 10 records</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 12</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    AnoMes PAG_PFPJ REC_PFPJ PAG_REGIAO    REC_REGIAO    PAG_IDADE      REC_IDADE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> <span style="text-decoration: underline;">202</span>511 PF       PJ       SUDESTE       CENTRO-OESTE  entre 30 e 39… Nao se a…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> <span style="text-decoration: underline;">202</span>510 PF       PF       Nao informado SUL           entre 40 e 49… entre 20…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> <span style="text-decoration: underline;">202</span>509 PJ       PF       NORTE         SUL           Nao se aplica  entre 50…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> <span style="text-decoration: underline;">202</span>512 PF       PF       Nao informado CENTRO-OESTE  entre 40 e 49… entre 40…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> <span style="text-decoration: underline;">202</span>510 PF       PJ       SUL           Nao informado mais de 60 an… Nao se a…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> <span style="text-decoration: underline;">202</span>509 PF       PJ       SUL           SUL           até 19 anos    Nao se a…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> <span style="text-decoration: underline;">202</span>511 PF       PF       Nao informado CENTRO-OESTE  entre 30 e 39… entre 30…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> <span style="text-decoration: underline;">202</span>511 PF       PF       NORTE         Nao informado até 19 anos    mais de …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> <span style="text-decoration: underline;">202</span>510 PF       PF       SUL           NORDESTE      entre 30 e 39… entre 20…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> <span style="text-decoration: underline;">202</span>512 PJ       PF       CENTRO-OESTE  NORTE         Nao se aplica  mais de …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: FORMAINICIACAO &lt;chr&gt;, NATUREZA &lt;chr&gt;, FINALIDADE &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   VALOR &lt;dbl&gt;, QUANTIDADE &lt;int&gt;</span></span>
+<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

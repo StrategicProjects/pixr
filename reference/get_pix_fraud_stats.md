@@ -71,11 +71,16 @@ This endpoint provides statistics on:
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+if (FALSE) # It usually takes much longer than 5 seconds.
 # Get fraud statistics for September 2025
 fraud <- get_pix_fraud_stats(database = "202509")
 
 # Get top 100 records
 fraud <- get_pix_fraud_stats(database = "202509", top = 100)
-} # }
+#> 
+#> ── Fetching PIX Fraud Statistics (MED) ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasFraudesPix(Database=@Database)?$format=json&@Database='202509'&$top=100
+#> ✔ Retrieved 3 records
+ # \dontrun{}
 ```

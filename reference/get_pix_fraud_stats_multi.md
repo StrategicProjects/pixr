@@ -28,10 +28,10 @@ with combined fraud statistics.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+if (FALSE) # It usually takes much longer than 5 seconds.
 # Get fraud data for Q3 2025
 q3_fraud <- get_pix_fraud_stats_multi(
   databases = c("202507", "202508", "202509")
 )
-} # }
+ # \dontrun{}
 ```

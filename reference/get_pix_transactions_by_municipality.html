@@ -178,7 +178,7 @@ person type (PF/PJ), and transaction direction (payer/receiver).</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co"># It usually takes much longer than 5 seconds.</span></span></span>
 <span class="r-in"><span><span class="co"># Get municipality transaction data for December 2025</span></span></span>
 <span class="r-in"><span><span class="va">muni</span> <span class="op">&lt;-</span> <span class="fu">get_pix_transactions_by_municipality</span><span class="op">(</span>database <span class="op">=</span> <span class="st">"202512"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -189,12 +189,22 @@ person type (PF/PJ), and transaction direction (payer/receiver).</p>
 <span class="r-in"><span>  orderby <span class="op">=</span> <span class="st">"Municipio desc"</span>,</span></span>
 <span class="r-in"><span>  top <span class="op">=</span> <span class="fl">10</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Transactions by Municipality</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&amp;@DataBase='202512'&amp;$filter=Estado%20eq%20'MARANHÃO'&amp;$orderby=Municipio%20desc&amp;$top=10</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Retrieved 10 records</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Filter by region</span></span></span>
 <span class="r-in"><span><span class="va">nordeste</span> <span class="op">&lt;-</span> <span class="fu">get_pix_transactions_by_municipality</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  database <span class="op">=</span> <span class="st">"202512"</span>,</span></span>
 <span class="r-in"><span>  filter <span class="op">=</span> <span class="st">"Sigla_Regiao eq 'NE'"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Transactions by Municipality</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&amp;@DataBase='202512'&amp;$filter=Sigla_Regiao%20eq%20'NE'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Retrieved 3588 records</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Order by value</span></span></span>
 <span class="r-in"><span><span class="va">top_value</span> <span class="op">&lt;-</span> <span class="fu">get_pix_transactions_by_municipality</span><span class="op">(</span></span></span>
@@ -202,7 +212,12 @@ person type (PF/PJ), and transaction direction (payer/receiver).</p>
 <span class="r-in"><span>  orderby <span class="op">=</span> <span class="st">"VL_PagadorPF desc"</span>,</span></span>
 <span class="r-in"><span>  top <span class="op">=</span> <span class="fl">100</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Transactions by Municipality</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&amp;@DataBase='202512'&amp;$orderby=VL_PagadorPF%20desc&amp;$top=100</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Retrieved 100 records</span>
+<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

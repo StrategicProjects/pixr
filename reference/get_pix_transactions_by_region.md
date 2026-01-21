@@ -28,8 +28,8 @@ with PIX transaction data aggregated by region.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+if (FALSE) # It usually takes much longer than 5 seconds.
 # Get region-level aggregates
 regions <- get_pix_transactions_by_region(database = "202512")
-} # }
+ # \dontrun{}
 ```

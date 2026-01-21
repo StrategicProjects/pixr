@@ -74,7 +74,7 @@ with the raw API response data.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+if (FALSE) # It usually takes much longer than 5 seconds.
 # Custom query for keys
 pix_query(
   endpoint = "ChavesPix",
@@ -88,5 +88,26 @@ pix_query(
   params = list(Database = "202509"),
   top = 10
 )
-} # }
+#> 
+#> ── Custom PIX API Query ──
+#> 
+#> ℹ Endpoint: EstatisticasTransacoesPix
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'&$top=10
+#> ✔ Retrieved 10 records
+#> # A tibble: 10 × 12
+#>    AnoMes PAG_PFPJ REC_PFPJ PAG_REGIAO    REC_REGIAO    PAG_IDADE      REC_IDADE
+#>     <int> <chr>    <chr>    <chr>         <chr>         <chr>          <chr>    
+#>  1 202511 PF       PJ       SUDESTE       CENTRO-OESTE  entre 30 e 39… Nao se a…
+#>  2 202510 PF       PF       Nao informado SUL           entre 40 e 49… entre 20…
+#>  3 202509 PJ       PF       NORTE         SUL           Nao se aplica  entre 50…
+#>  4 202512 PF       PF       Nao informado CENTRO-OESTE  entre 40 e 49… entre 40…
+#>  5 202510 PF       PJ       SUL           Nao informado mais de 60 an… Nao se a…
+#>  6 202509 PF       PJ       SUL           SUL           até 19 anos    Nao se a…
+#>  7 202511 PF       PF       Nao informado CENTRO-OESTE  entre 30 e 39… entre 30…
+#>  8 202511 PF       PF       NORTE         Nao informado até 19 anos    mais de …
+#>  9 202510 PF       PF       SUL           NORDESTE      entre 30 e 39… entre 20…
+#> 10 202512 PJ       PF       CENTRO-OESTE  NORTE         Nao se aplica  mais de …
+#> # ℹ 5 more variables: FORMAINICIACAO <chr>, NATUREZA <chr>, FINALIDADE <chr>,
+#> #   VALOR <dbl>, QUANTIDADE <int>
+ # \dontrun{}
 ```

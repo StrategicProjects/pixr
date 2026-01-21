@@ -150,7 +150,7 @@ municipality, person type (PF/PJ), and transaction direction
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+if (FALSE) # It usually takes much longer than 5 seconds.
 # Get municipality transaction data for December 2025
 muni <- get_pix_transactions_by_municipality(database = "202512")
 
@@ -161,12 +161,22 @@ maranhao <- get_pix_transactions_by_municipality(
   orderby = "Municipio desc",
   top = 10
 )
+#> 
+#> ── Fetching PIX Transactions by Municipality ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'&$filter=Estado%20eq%20'MARANHÃO'&$orderby=Municipio%20desc&$top=10
+#> ✔ Retrieved 10 records
 
 # Filter by region
 nordeste <- get_pix_transactions_by_municipality(
   database = "202512",
   filter = "Sigla_Regiao eq 'NE'"
 )
+#> 
+#> ── Fetching PIX Transactions by Municipality ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'&$filter=Sigla_Regiao%20eq%20'NE'
+#> ✔ Retrieved 3588 records
 
 # Order by value
 top_value <- get_pix_transactions_by_municipality(
@@ -174,5 +184,10 @@ top_value <- get_pix_transactions_by_municipality(
   orderby = "VL_PagadorPF desc",
   top = 100
 )
-} # }
+#> 
+#> ── Fetching PIX Transactions by Municipality ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'&$orderby=VL_PagadorPF%20desc&$top=100
+#> ✔ Retrieved 100 records
+ # \dontrun{}
 ```

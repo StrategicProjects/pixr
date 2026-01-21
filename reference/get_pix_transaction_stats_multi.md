@@ -28,10 +28,10 @@ with combined transaction statistics.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+if (FALSE) # It usually takes much longer than 5 seconds.
 # Get data for Q3 2025
 q3_data <- get_pix_transaction_stats_multi(
   databases = c("202507", "202508", "202509")
 )
-} # }
+ # \dontrun{}
 ```

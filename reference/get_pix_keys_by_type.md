@@ -28,8 +28,8 @@ with summary data by key type.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+if (FALSE) # It usually takes much longer than 5 seconds.
 # Get summary by key type
 get_pix_keys_by_type(date = "2025-12-01")
-} # }
+ # \dontrun{}
 ```

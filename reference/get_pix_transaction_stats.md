@@ -147,7 +147,7 @@ transactions.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+if (FALSE) # It usually takes much longer than 5 seconds.
 # Get transaction statistics for September 2025
 stats <- get_pix_transaction_stats(database = "202509")
 
@@ -156,6 +156,11 @@ p2p <- get_pix_transaction_stats(
   database = "202509",
   filter = "NATUREZA eq 'P2P'"
 )
+#> 
+#> ── Fetching PIX Transaction Statistics ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'&$filter=NATUREZA%20eq%20'P2P'
+#> ✔ Retrieved 32860 records
 
 # Filter by region and order by value
 sudeste <- get_pix_transaction_stats(
@@ -164,11 +169,21 @@ sudeste <- get_pix_transaction_stats(
   orderby = "VALOR desc",
   top = 100
 )
+#> 
+#> ── Fetching PIX Transaction Statistics ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'&$filter=PAG_REGIAO%20eq%20'SUDESTE'&$orderby=VALOR%20desc&$top=100
+#> ✔ Retrieved 100 records
 
 # Multiple filters (use 'and')
 filtered <- get_pix_transaction_stats(
   database = "202509",
   filter = "NATUREZA eq 'P2P' and PAG_REGIAO eq 'NORDESTE'"
 )
-} # }
+#> 
+#> ── Fetching PIX Transaction Statistics ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'&$filter=NATUREZA%20eq%20'P2P'%20and%20PAG_REGIAO%20eq%20'NORDESTE'
+#> ✔ Retrieved 5811 records
+ # \dontrun{}
 ```

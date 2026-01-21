@@ -78,13 +78,34 @@ day of the specified month.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co"># It usually takes much longer than 5 seconds.</span></span></span>
 <span class="r-in"><span><span class="co"># Get top 20 institutions by total keys</span></span></span>
 <span class="r-in"><span><span class="fu">get_pix_keys_summary</span><span class="op">(</span>date <span class="op">=</span> <span class="st">"2025-12-01"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get top 10 institutions</span></span></span>
 <span class="r-in"><span><span class="fu">get_pix_keys_summary</span><span class="op">(</span>date <span class="op">=</span> <span class="st">"2025-12-01"</span>, n_top <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Keys Summary</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Keys Stock Data</span> ──</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/ChavesPix(Data=@Data)?$format=json&amp;@Data='2025-12-01'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Retrieved 6252 records</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Returning top 10 institutions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Nome                        ISPB     total_keys   pf_keys pj_keys n_key_types</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> NU PAGAMENTOS - IP          18236120  177<span style="text-decoration: underline;">890</span>202 168<span style="text-decoration: underline;">042</span>730 9<span style="text-decoration: underline;">847</span>472           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> CAIXA ECONOMICA FEDERAL     00360305  125<span style="text-decoration: underline;">018</span>141 123<span style="text-decoration: underline;">408</span>654 1<span style="text-decoration: underline;">609</span>487           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> PICPAY                      22896431   92<span style="text-decoration: underline;">433</span>894  92<span style="text-decoration: underline;">138</span>217  <span style="text-decoration: underline;">295</span>677           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> MERCADO PAGO IP LTDA.       10573521   61<span style="text-decoration: underline;">700</span>653  60<span style="text-decoration: underline;">360</span>064 1<span style="text-decoration: underline;">340</span>589           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> BCO BRADESCO S.A.           60746948   56<span style="text-decoration: underline;">439</span>659  54<span style="text-decoration: underline;">093</span>607 2<span style="text-decoration: underline;">346</span>052           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> BANCO INTER                 00416968   51<span style="text-decoration: underline;">348</span>818  48<span style="text-decoration: underline;">905</span>966 2<span style="text-decoration: underline;">442</span>852           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ITAÚ UNIBANCO S.A.          60701190   47<span style="text-decoration: underline;">592</span>176  44<span style="text-decoration: underline;">813</span>457 2<span style="text-decoration: underline;">778</span>719           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> PAGSEGURO INTERNET IP S.A.  08561701   39<span style="text-decoration: underline;">769</span>897  36<span style="text-decoration: underline;">658</span>198 3<span style="text-decoration: underline;">111</span>699           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> BCO SANTANDER (BRASIL) S.A. 90400888   39<span style="text-decoration: underline;">185</span>726  36<span style="text-decoration: underline;">865</span>130 2<span style="text-decoration: underline;">320</span>596           5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> BCO DO BRASIL S.A.          00000000   34<span style="text-decoration: underline;">136</span>393  32<span style="text-decoration: underline;">291</span>873 1<span style="text-decoration: underline;">844</span>520           5</span>
+<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
