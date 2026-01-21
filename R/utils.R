@@ -60,7 +60,7 @@ pix_columns <- function(endpoint = c("keys", "municipality", "stats", "fraud")) 
       "ISPB", "character", "8-digit code identifying the financial institution",
       "Nome", "character", "Name of the PIX participant (financial institution)",
       "NaturezaUsuario", "character", "User type: PF (Individual) or PJ (Legal Entity)",
-      "TipoChave", "character", "Key type: CPF, CNPJ, Celular, e-mail, or Aleatória",
+      "TipoChave", "character", "Key type: CPF, CNPJ, Celular, e-mail, or Aleat\u00f3ria",
       "qtdChaves", "numeric", "Number of registered keys"
     ),
     

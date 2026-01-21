@@ -10,7 +10,7 @@ Description: Provides a tidyverse-style interface to the Brazilian Central Bank
     (BCB) PIX Open Data API. Retrieve statistics on PIX keys, transactions by 
     municipality, and monthly transaction summaries. All functions return tibbles 
     and support OData query parameters for filtering, selecting, and ordering data.
-License: MIT + file LICENSE
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

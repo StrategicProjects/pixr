@@ -78,7 +78,7 @@ pix_request <- function(endpoint,
   }
 
   if (!is.null(filter) && nzchar(filter)) {
-    # Remove espaços após vírgulas e parênteses em funções OData
+    # Remove spaces
     filter <- gsub(",\\s+", ",", filter)
     filter <- gsub("\\(\\s+", "(", filter)
     query_parts <- c(query_parts, paste0("$filter=", filter))
