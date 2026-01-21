@@ -88,7 +88,7 @@ data to retrieve. The data provides granular breakdowns of PIX transactions.
 }
 
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get transaction statistics for September 2025
 stats <- get_pix_transaction_stats(database = "202509")
 

@@ -19,7 +19,7 @@ Retrieves transaction statistics for multiple months and combines them
 into a single tibble.
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get data for Q3 2025
 q3_data <- get_pix_transaction_stats_multi(
   databases = c("202507", "202508", "202509")

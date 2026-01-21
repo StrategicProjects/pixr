@@ -7,22 +7,21 @@ Authors@R: c(
     person("Hugo", "Vasconcelos", email = "hugo.vasconcelos@ufpe.br", role = "aut"),
     person("Diogo", "Bezerra", email = "diogo.bezerra@ufpe.br", role = "aut"))
 Description: Provides a tidyverse-style interface to the Brazilian Central Bank 
-    (BCB) PIX Open Data API. Retrieve statistics on PIX keys, transactions by 
+    ('BCB') 'PIX' Open Data 'API'. Retrieve statistics on 'PIX' keys, transactions by 
     municipality, and monthly transaction summaries. All functions return tibbles 
     and support OData query parameters for filtering, selecting, and ordering data.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Depends: 
+    R (>= 4.1.0)
 Imports:
     httr2 (>= 1.0.0),
     cli (>= 3.6.0),
     tibble (>= 3.2.0),
     dplyr (>= 1.1.0),
     rlang (>= 1.1.0),
-    jsonlite (>= 1.8.0),
-    glue (>= 1.6.0),
     purrr (>= 1.0.0)
 Suggests:
     testthat (>= 3.0.0),

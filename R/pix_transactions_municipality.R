@@ -52,7 +52,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get municipality transaction data for December 2025
 #' muni <- get_pix_transactions_by_municipality(database = "202512")
 #'
@@ -170,7 +170,7 @@ clean_municipality_data <- function(data) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get state-level aggregates for December 2025
 #' states <- get_pix_transactions_by_state(database = "202512")
 #' }
@@ -228,7 +228,7 @@ get_pix_transactions_by_state <- function(database, verbose = TRUE) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get region-level aggregates
 #' regions <- get_pix_transactions_by_region(database = "202512")
 #' }

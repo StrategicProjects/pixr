@@ -138,7 +138,6 @@ pix_request <- function(endpoint,
 pix_perform <- function(req, verbose = TRUE) {
   
   if (verbose) {
-    cli::cli_progress_step("Fetching data from BCB PIX API...")
     cli::cli_alert_info("URL: {req$url}")
   }
   
@@ -153,10 +152,6 @@ pix_perform <- function(req, verbose = TRUE) {
       "i" = "URL: {req$url}"
     ))
   })
-  
-  if (verbose) {
-    cli::cli_progress_step("Parsing response...")
-  }
   
   # Check response status
   status_code <- httr2::resp_status(resp)

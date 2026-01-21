@@ -68,7 +68,7 @@ the specified date. For example, \code{date = "2025-12-01"} returns data for
 }
 
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get all PIX keys data for December 2025
 keys <- get_pix_keys(date = "2025-12-01")
 

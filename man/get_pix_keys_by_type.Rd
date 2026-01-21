@@ -20,7 +20,7 @@ A \link[tibble:tibble]{tibble::tibble} with summary data by key type.
 Retrieves PIX keys data and returns a summary by key type.
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get summary by key type
 get_pix_keys_by_type(date = "2025-12-01")
 }

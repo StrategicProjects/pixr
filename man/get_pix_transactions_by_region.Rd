@@ -19,7 +19,7 @@ A \link[tibble:tibble]{tibble::tibble} with PIX transaction data aggregated by r
 A convenience wrapper that aggregates municipality data at the region level.
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get region-level aggregates
 regions <- get_pix_transactions_by_region(database = "202512")
 }

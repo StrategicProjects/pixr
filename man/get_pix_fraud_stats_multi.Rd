@@ -19,7 +19,7 @@ Retrieves fraud statistics for multiple months and combines them
 into a single tibble.
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get fraud data for Q3 2025
 q3_fraud <- get_pix_fraud_stats_multi(
   databases = c("202507", "202508", "202509")

@@ -76,7 +76,7 @@ person type (PF/PJ), and transaction direction (payer/receiver).
 }
 
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get municipality transaction data for December 2025
 muni <- get_pix_transactions_by_municipality(database = "202512")
 

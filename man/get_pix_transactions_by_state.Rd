@@ -20,7 +20,7 @@ A convenience wrapper around \code{\link[=get_pix_transactions_by_municipality]{
 aggregates data at the state level.
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get state-level aggregates for December 2025
 states <- get_pix_transactions_by_state(database = "202512")
 }

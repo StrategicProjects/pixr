@@ -52,7 +52,7 @@ This endpoint provides statistics on:
 }
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get fraud statistics for September 2025
 fraud <- get_pix_fraud_stats(database = "202509")
 

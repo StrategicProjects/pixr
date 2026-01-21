@@ -180,37 +180,115 @@ format_brl <- function(x,
   }
 }
 
+
 #' Check API Connection
 #'
 #' @description
-#' Tests the connection to the BCB PIX Open Data API.
+#' Tests the connection to all BCB PIX Open Data API endpoints.
+#' Each endpoint is tested with a single record request (top=1).
 #'
-#' @return Logical; TRUE if the API is reachable, FALSE otherwise.
+#' @return A tibble (invisibly) with columns:
+#' \describe{
+#'   \item{endpoint}{Name of the endpoint tested}
+#'   \item{status}{Result: "OK" or error message}
+#'   \item{time_seconds}{Time taken for the request in seconds}
+#' }
 #'
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
+#' # Test all endpoints
 #' pix_ping()
+#'
+#' # Capture results
+#' results <- pix_ping()
+#' print(results)
 #' }
 pix_ping <- function() {
-  cli::cli_progress_step("Testing connection to BCB PIX API...")
+  cli::cli_h2("Testing BCB PIX API Endpoints")
   
-  tryCatch({
-    req <- pix_request("$metadata")
-    resp <- httr2::req_perform(req)
+  # Define endpoints to test
+  
+  endpoints <- list(
+    list(
+      name = "ChavesPix",
+      endpoint = "ChavesPix",
+      params = list(Data = "2025-01-01")
+    ),
+    list(
+      name = "TransacoesPixPorMunicipio",
+      endpoint = "TransacoesPixPorMunicipio",
+      params = list(DataBase = "202501")
+    ),
+    list(
+      name = "EstatisticasTransacoesPix",
+      endpoint = "EstatisticasTransacoesPix",
+      params = list(Database = "202501")
+    ),
+    list(
+      name = "EstatisticasFraudesPix",
+      endpoint = "EstatisticasFraudesPix",
+      params = list(Database = "202501")
+    )
+  )
+  
+  results <- list()
+  
+  for (ep in endpoints) {
+    cli::cli_alert_info("Testing {ep$name}...")
     
-    if (httr2::resp_status(resp) == 200) {
-      cli::cli_alert_success("API connection successful")
-      invisible(TRUE)
+    start_time <- Sys.time()
+    
+    status <- tryCatch({
+      req <- pix_request(
+        endpoint = ep$endpoint,
+        params = ep$params,
+        top = 1
+      )
+      resp <- httr2::req_perform(req)
+      
+      if (httr2::resp_status(resp) == 200) {
+        "OK"
+      } else {
+        paste0("HTTP ", httr2::resp_status(resp))
+      }
+    }, error = function(e) {
+      conditionMessage(e)
+    })
+    
+    end_time <- Sys.time()
+    elapsed <- as.numeric(difftime(end_time, start_time, units = "secs"))
+    
+    # Log result
+    if (status == "OK") {
+      cli::cli_alert_success("{ep$name}: {.val OK} ({round(elapsed, 2)}s)")
     } else {
-      cli::cli_alert_danger("API returned status {httr2::resp_status(resp)}")
-      invisible(FALSE)
+      cli::cli_alert_danger("{ep$name}: {status} ({round(elapsed, 2)}s)")
     }
-  }, error = function(e) {
-    cli::cli_alert_danger("Failed to connect: {conditionMessage(e)}")
-    invisible(FALSE)
-  })
+    
+    results[[ep$name]] <- list(
+      endpoint = ep$name,
+      status = status,
+      time_seconds = elapsed
+    )
+  }
+  
+  # Create summary tibble
+  summary_df <- tibble::tibble(
+    endpoint = sapply(results, `[[`, "endpoint"),
+    status = sapply(results, `[[`, "status"),
+    time_seconds = sapply(results, `[[`, "time_seconds")
+  )
+  
+  total_time <- sum(summary_df$time_seconds)
+  success_count <- sum(summary_df$status == "OK")
+  
+  cli::cli_rule()
+  cli::cli_alert_info("Total time: {round(total_time, 2)}s")
+  cli::cli_alert_info("Success: {success_count}/{nrow(summary_df)} endpoints")
+  
+  invisible(summary_df)
 }
 
 #' Get or Set API Request Timeout
@@ -289,7 +367,7 @@ pix_timeout <- function(seconds = NULL) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Custom query for keys
 #' pix_query(
 #'   endpoint = "ChavesPix",

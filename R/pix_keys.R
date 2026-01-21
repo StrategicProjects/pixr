@@ -44,7 +44,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get all PIX keys data for December 2025
 #' keys <- get_pix_keys(date = "2025-12-01")
 #'
@@ -174,7 +174,7 @@ clean_pix_keys_data <- function(data) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get top 20 institutions by total keys
 #' get_pix_keys_summary(date = "2025-12-01")
 #'
@@ -224,7 +224,7 @@ get_pix_keys_summary <- function(date, n_top = 20, verbose = TRUE) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get summary by key type
 #' get_pix_keys_by_type(date = "2025-12-01")
 #' }

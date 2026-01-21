@@ -59,7 +59,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get transaction statistics for September 2025
 #' stats <- get_pix_transaction_stats(database = "202509")
 #'
@@ -172,7 +172,7 @@ clean_stats_data <- function(data) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Summary by transaction nature
 #' get_pix_summary(database = "202509", group_by = "NATUREZA")
 #'
@@ -232,7 +232,7 @@ get_pix_summary <- function(database,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get data for Q3 2025
 #' q3_data <- get_pix_transaction_stats_multi(
 #'   databases = c("202507", "202508", "202509")
@@ -244,7 +244,7 @@ get_pix_transaction_stats_multi <- function(databases, ...) {
   cli::cli_alert_info("Months: {paste(databases, collapse = ', ')}")
   
   results <- purrr::map(databases, function(db) {
-    cli::cli_progress_step("Fetching {db}...")
+    cli::cli_alert_info("Fetching {db}...")
     tryCatch(
       get_pix_transaction_stats(database = db, verbose = FALSE, ...),
       error = function(e) {

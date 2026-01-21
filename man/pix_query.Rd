@@ -50,7 +50,7 @@ Low-level function to fetch data from any PIX API endpoint with custom
 parameters.
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Custom query for keys
 pix_query(
   endpoint = "ChavesPix",

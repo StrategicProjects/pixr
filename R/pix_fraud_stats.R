@@ -30,7 +30,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get fraud statistics for September 2025
 #' fraud <- get_pix_fraud_stats(database = "202509")
 #'
@@ -117,7 +117,7 @@ clean_fraud_data <- function(data) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \dontrun{# It usually takes much longer than 5 seconds.
 #' # Get fraud data for Q3 2025
 #' q3_fraud <- get_pix_fraud_stats_multi(
 #'   databases = c("202507", "202508", "202509")
@@ -129,7 +129,7 @@ get_pix_fraud_stats_multi <- function(databases, ...) {
   cli::cli_alert_info("Months: {paste(databases, collapse = ', ')}")
   
   results <- purrr::map(databases, function(db) {
-    cli::cli_progress_step("Fetching {db}...")
+    cli::cli_alert_info("Fetching {db}...")
     tryCatch(
       get_pix_fraud_stats(database = db, verbose = FALSE, ...),
       error = function(e) {

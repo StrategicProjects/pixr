@@ -24,7 +24,7 @@ variables. This is a convenience function that fetches data and performs
 common aggregations.
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Summary by transaction nature
 get_pix_summary(database = "202509", group_by = "NATUREZA")
 

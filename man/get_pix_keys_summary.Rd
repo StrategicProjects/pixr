@@ -23,7 +23,7 @@ Retrieves PIX keys data and returns a summary showing total keys by
 institution, sorted by total keys.
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
 # Get top 20 institutions by total keys
 get_pix_keys_summary(date = "2025-12-01")
 

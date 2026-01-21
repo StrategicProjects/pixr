@@ -12,3 +12,5 @@
 ^vignettes/.*_cache$
 ^vignettes/.*\.html$
 ^NEWS\.md$
+^.DS_Store$
+^cran-comments\.md$

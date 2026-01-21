@@ -7,13 +7,24 @@
 pix_ping()
 }
 \value{
-Logical; TRUE if the API is reachable, FALSE otherwise.
+A tibble (invisibly) with columns:
+\describe{
+\item{endpoint}{Name of the endpoint tested}
+\item{status}{Result: "OK" or error message}
+\item{time_seconds}{Time taken for the request in seconds}
+}
 }
 \description{
-Tests the connection to the BCB PIX Open Data API.
+Tests the connection to all BCB PIX Open Data API endpoints.
+Each endpoint is tested with a single record request (top=1).
 }
 \examples{
-\dontrun{
+\dontrun{# It usually takes much longer than 5 seconds.
+# Test all endpoints
 pix_ping()
+
+# Capture results
+results <- pix_ping()
+print(results)
 }
 }
