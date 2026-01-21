@@ -75,13 +75,20 @@ pix_timeout()
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/yourname/pixr}
-  \item Report bugs at \url{https://github.com/yourname/pixr/issues}
+  \item \url{https://github.com/StrategicProjects/pixr}
+  \item Report bugs at \url{https://github.com/StrategicProjects/pixr/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Your Name \email{your.email@example.com}
+\strong{Maintainer}: Andre Leite \email{leite@castlab.org}
+
+Authors:
+\itemize{
+  \item Marcos Wasilew \email{marcos.wasilew@gmail.com}
+  \item Hugo Vasconcelos \email{hugo.vasconcelos@ufpe.br}
+  \item Diogo Bezerra \email{diogo.bezerra@ufpe.br}
+}
 
 }
 \keyword{internal}

@@ -36,7 +36,7 @@ get_timeout <- function() {
 #' @param select Character vector of columns to select
 #' @param orderby Column to order by (already formatted as "Column asc" or "Column desc")
 #' @param top Maximum number of records to return
-#' @param skip Number of records to skip
+#' @param skip Number of records to skip (not supported by the BCB PIX API)
 #'
 #' @return An httr2 request object
 #' @noRd
@@ -49,10 +49,9 @@ pix_request <- function(endpoint,
                         top = NULL,
                         skip = NULL) {
   
- # Build the endpoint URL with function parameters
+  # Build the endpoint URL with function parameters
   # BCB uses syntax like: Endpoint(Param1=@Param1)?@Param1='value'
   if (!is.null(params) && length(params) > 0) {
-    # Build the function signature part: (Param1=@Param1,Param2=@Param2)
     param_names <- names(params)
     func_params <- paste0(param_names, "=@", param_names, collapse = ",")
     endpoint_url <- paste0(PIX_BASE_URL, "/", endpoint, "(", func_params, ")")
@@ -60,52 +59,69 @@ pix_request <- function(endpoint,
     endpoint_url <- paste0(PIX_BASE_URL, "/", endpoint)
   }
   
-  # Get timeout from options or use default
-
-timeout_seconds <- get_timeout()
+  # Build query string manually to avoid encoding OData parameters
+  query_parts <- list()
   
-  req <- httr2::request(endpoint_url) |>
-    httr2::req_url_query(`$format` = format) |>
+  # Add format
+  query_parts <- c(query_parts, paste0("$format=", format))
+  
+  # Add endpoint parameters as @Param='value'
+  if (!is.null(params) && length(params) > 0) {
+    for (param_name in names(params)) {
+      param_value <- params[[param_name]]
+      if (is.character(param_value)) {
+        query_parts <- c(query_parts, paste0("@", param_name, "='", param_value, "'"))
+      } else {
+        query_parts <- c(query_parts, paste0("@", param_name, "=", param_value))
+      }
+    }
+  }
+  
+  # Add optional OData query parameters (NOT encoded)
+  if (!is.null(filter) && nzchar(filter)) {
+    query_parts <- c(query_parts, paste0("$filter=", filter))
+  }
+  
+  if (!is.null(select) && length(select) > 0) {
+    query_parts <- c(query_parts, paste0("$select=", paste(select, collapse = ",")))
+  }
+  
+  if (!is.null(orderby) && nzchar(orderby)) {
+    query_parts <- c(query_parts, paste0("$orderby=", orderby))
+  }
+  
+  if (!is.null(top)) {
+    query_parts <- c(query_parts, paste0("$top=", as.integer(top)))
+  }
+  
+  # if (!is.null(skip)) {
+  #   query_parts <- c(query_parts, paste0("$skip=", as.integer(skip)))
+  # }
+  if (!is.null(skip)) {
+    cli::cli_warn(c(
+      "Parameter {.arg skip} is not supported by the BCB PIX API",
+      "i" = "Pagination with skip is not currently available",
+      "i" = "Use {.arg top} to limit results instead"
+    ))
+    # Não adiciona à query - API não suporta
+  }
+  
+  # Build full URL - encode only spaces as %20
+  query_string <- paste(query_parts, collapse = "&")
+  query_string <- gsub(" ", "%20", query_string)
+  full_url <- paste0(endpoint_url, "?", query_string)
+  
+  # Get timeout
+  timeout_seconds <- get_timeout()
+  
+  # Create request without additional encoding
+  req <- httr2::request(full_url) |>
     httr2::req_headers(
       Accept = "application/json;odata.metadata=minimal"
     ) |>
     httr2::req_user_agent("pixr R package (https://github.com/yourname/pixr)") |>
     httr2::req_timeout(timeout_seconds) |>
     httr2::req_retry(max_tries = 3, backoff = ~ 2)
-  
-  # Add endpoint parameters as @Param='value'
-  if (!is.null(params) && length(params) > 0) {
-    for (param_name in names(params)) {
-      param_value <- params[[param_name]]
-      # Values need to be quoted with single quotes for strings
-      if (is.character(param_value)) {
-        req <- httr2::req_url_query(req, !!paste0("@", param_name) := paste0("'", param_value, "'"))
-      } else {
-        req <- httr2::req_url_query(req, !!paste0("@", param_name) := param_value)
-      }
-    }
-  }
-  
-  # Add optional OData query parameters
-  if (!is.null(filter) && nzchar(filter)) {
-    req <- httr2::req_url_query(req, `$filter` = filter)
-  }
-  
-  if (!is.null(select) && length(select) > 0) {
-    req <- httr2::req_url_query(req, `$select` = paste(select, collapse = ","))
-  }
-  
-  if (!is.null(orderby) && nzchar(orderby)) {
-    req <- httr2::req_url_query(req, `$orderby` = orderby)
-  }
-  
-  if (!is.null(top)) {
-    req <- httr2::req_url_query(req, `$top` = as.integer(top))
-  }
-  
-  if (!is.null(skip)) {
-    req <- httr2::req_url_query(req, `$skip` = as.integer(skip))
-  }
   
   req
 }
