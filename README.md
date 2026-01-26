@@ -195,6 +195,7 @@ pix_url("ChavesPix", params = list(Data = "2025-12-01"), top = 10)
 pix_url("EstatisticasTransacoesPix", params = list(Database = "202509"))
 ```
 
+<!--
 ## curl Examples
 
 ```bash
@@ -218,6 +219,7 @@ curl -X GET \
   "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasFraudesPix(Database=@Database)?@Database='202509'&\$format=json" \
   -H "accept: application/json;odata.metadata=minimal"
 ```
+-->
 
 ## References
 
