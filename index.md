@@ -193,30 +193,6 @@ pix_url("ChavesPix", params = list(Data = "2025-12-01"), top = 10)
 pix_url("EstatisticasTransacoesPix", params = list(Database = "202509"))
 ```
 
-## curl Examples
-
-``` bash
-# PIX Keys (uses Data in YYYY-MM-DD format)
-curl -X GET \
-  "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/ChavesPix(Data=@Data)?@Data='2025-12-01'&\$format=json" \
-  -H "accept: application/json;odata.metadata=minimal"
-
-# Transaction Statistics (uses Database in YYYYMM format)
-curl -X GET \
-  "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?@Database='202509'&\$format=json" \
-  -H "accept: application/json;odata.metadata=minimal"
-
-# Transactions by Municipality (uses DataBase in YYYYMM format)
-curl -X GET \
-  "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?@DataBase='202512'&\$top=10&\$format=json" \
-  -H "accept: application/json;odata.metadata=minimal"
-
-# Fraud Statistics (uses Database in YYYYMM format)
-curl -X GET \
-  "https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasFraudesPix(Database=@Database)?@Database='202509'&\$format=json" \
-  -H "accept: application/json;odata.metadata=minimal"
-```
-
 ## References
 
 - [BCB PIX Open Data
