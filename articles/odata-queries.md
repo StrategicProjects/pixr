@@ -13,12 +13,12 @@ including `$filter`, `$orderby`, `$select`, `$top`, and `$skip`.
 
 Each endpoint requires a specific date/database parameter:
 
-| Endpoint                  | Parameter  | Format     | R Function                                                  |
-|---------------------------|------------|------------|-------------------------------------------------------------|
-| ChavesPix                 | `Data`     | YYYY-MM-DD | `get_pix_keys(date = "2025-12-01")`                         |
-| TransacoesPixPorMunicipio | `DataBase` | YYYYMM     | `get_pix_transactions_by_municipality(database = "202512")` |
-| EstatisticasTransacoesPix | `Database` | YYYYMM     | `get_pix_transaction_stats(database = "202509")`            |
-| EstatisticasFraudesPix    | `Database` | YYYYMM     | `get_pix_fraud_stats(database = "202509")`                  |
+| Endpoint | Parameter | Format | R Function |
+|----|----|----|----|
+| ChavesPix | `Data` | YYYY-MM-DD | `get_pix_keys(date = "2025-12-01")` |
+| TransacoesPixPorMunicipio | `DataBase` | YYYYMM | `get_pix_transactions_by_municipality(database = "202512")` |
+| EstatisticasTransacoesPix | `Database` | YYYYMM | `get_pix_transaction_stats(database = "202509")` |
+| EstatisticasFraudesPix | `Database` | YYYYMM | `get_pix_fraud_stats(database = "202509")` |
 
 ## Filtering with \$filter
 
@@ -28,6 +28,7 @@ syntax.
 ### Basic Filter Syntax
 
 ``` r
+
 library(pixr)
 
 # Filter transactions by state
@@ -67,6 +68,7 @@ get_pix_keys(
 | `le`     | Less or equal    | `"qtdChaves le 1000"`     |
 
 ``` r
+
 # Greater than
 get_pix_transaction_stats(
   database = "202509",
@@ -90,6 +92,7 @@ Combine multiple conditions with `and` and `or`:
 | `or`     | `"Estado eq 'SP' or Estado eq 'RJ'"`              |
 
 ``` r
+
 # AND - both conditions must be true
 get_pix_transaction_stats(
   database = "202509",
@@ -120,6 +123,7 @@ The API supports string functions for text matching:
 | `endswith(field, value)`   | Ends with       | `"endswith(Nome, 'S.A.')"`   |
 
 ``` r
+
 # Find institutions containing "SICREDI"
 get_pix_keys(
   date = "2025-12-01",
@@ -140,6 +144,7 @@ Sort results by any column using the `orderby` parameter.
 ### Basic Ordering
 
 ``` r
+
 # Ascending order (default)
 get_pix_keys(
   date = "2025-12-01",
@@ -168,6 +173,7 @@ get_pix_transaction_stats(
 ### Combining Filter and OrderBy
 
 ``` r
+
 # Filter by state and order by municipality name (descending)
 get_pix_transactions_by_municipality(
   database = "202512",
@@ -198,6 +204,7 @@ get_pix_keys(
 Retrieve only the columns you need using the `columns` parameter:
 
 ``` r
+
 # Select specific columns for PIX keys
 get_pix_keys(
   date = "2025-12-01",
@@ -218,6 +225,7 @@ get_pix_transactions_by_municipality(
 Control the number of results returned:
 
 ``` r
+
 # Get first 10 records
 get_pix_keys(date = "2025-12-01", top = 10)
 
@@ -230,6 +238,7 @@ get_pix_keys(date = "2025-12-01", top = 50, skip = 100)
 For large datasets, use pagination to download in batches:
 
 ``` r
+
 # Download all data in chunks
 all_data <- list()
 skip <- 0
@@ -262,6 +271,7 @@ For advanced use cases, use
 with raw OData parameters:
 
 ``` r
+
 # Custom query with all parameters
 pix_query(
   endpoint = "TransacoesPixPorMunicipio",
@@ -289,6 +299,7 @@ Use
 to see the URL that would be called:
 
 ``` r
+
 # See the URL for a query
 pix_url(
   "TransacoesPixPorMunicipio",
@@ -308,6 +319,7 @@ pix_url(
 ### Top 10 States by Transaction Volume
 
 ``` r
+
 library(dplyr)
 
 # Get all municipalities and aggregate by state
@@ -325,6 +337,7 @@ get_pix_transactions_by_municipality(database = "202512") |>
 ### P2P vs P2B Transactions by Region
 
 ``` r
+
 # Get P2P transactions by region
 p2p <- get_pix_transaction_stats(
   database = "202509",
@@ -348,6 +361,7 @@ left_join(p2p, p2b, by = "PAG_REGIAO")
 ### Market Share by Key Type
 
 ``` r
+
 # Get keys by type
 get_pix_keys(date = "2025-12-01") |>
   group_by(TipoChave) |>
@@ -362,6 +376,7 @@ get_pix_keys(date = "2025-12-01") |>
     downloading all data
 
 ``` r
+
 # Good: Filter on the server
 get_pix_transactions_by_municipality(
   database = "202512",
@@ -376,6 +391,7 @@ get_pix_transactions_by_municipality(database = "202512") |>
 2.  **Select only needed columns**: Reduces response size
 
 ``` r
+
 # Good: Request only what you need
 get_pix_keys(
   date = "2025-12-01",
@@ -386,6 +402,7 @@ get_pix_keys(
 3.  **Use `top` during development**: Limit results when exploring
 
 ``` r
+
 # Good: Explore with limited data
 get_pix_keys(date = "2025-12-01", top = 10)
 ```
@@ -393,6 +410,7 @@ get_pix_keys(date = "2025-12-01", top = 10)
 4.  **Disable verbose mode in loops**: Reduces output clutter
 
 ``` r
+
 get_pix_keys(date = "2025-12-01", verbose = FALSE)
 ```
 
@@ -400,13 +418,13 @@ get_pix_keys(date = "2025-12-01", verbose = FALSE)
 
 ### ChavesPix (PIX Keys)
 
-| Column          | Type    | Filter Example                                                                                                                       |
-|-----------------|---------|--------------------------------------------------------------------------------------------------------------------------------------|
-| Nome            | string  | `"Nome eq 'BANCO DO BRASIL S.A.'"`                                                                                                   |
-| ISPB            | string  | `"ISPB eq '00000000'"`                                                                                                               |
-| NaturezaUsuario | string  | `"NaturezaUsuario eq 'PF'"` or `"NaturezaUsuario eq 'PJ'"`                                                                           |
-| TipoChave       | string  | `"TipoChave eq 'CPF'"`, `"TipoChave eq 'Celular'"`, `"TipoChave eq 'e-mail'"`, `"TipoChave eq 'Aleatória'"`, `"TipoChave eq 'CNPJ'"` |
-| qtdChaves       | numeric | `"qtdChaves gt 1000"`                                                                                                                |
+| Column | Type | Filter Example |
+|----|----|----|
+| Nome | string | `"Nome eq 'BANCO DO BRASIL S.A.'"` |
+| ISPB | string | `"ISPB eq '00000000'"` |
+| NaturezaUsuario | string | `"NaturezaUsuario eq 'PF'"` or `"NaturezaUsuario eq 'PJ'"` |
+| TipoChave | string | `"TipoChave eq 'CPF'"`, `"TipoChave eq 'Celular'"`, `"TipoChave eq 'e-mail'"`, `"TipoChave eq 'Aleatória'"`, `"TipoChave eq 'CNPJ'"` |
+| qtdChaves | numeric | `"qtdChaves gt 1000"` |
 
 ### TransacoesPixPorMunicipio (Transactions by Municipality)
 
@@ -420,17 +438,17 @@ get_pix_keys(date = "2025-12-01", verbose = FALSE)
 
 ### EstatisticasTransacoesPix (Transaction Statistics)
 
-| Column         | Type    | Filter Example                                              |
-|----------------|---------|-------------------------------------------------------------|
-| PAG_PFPJ       | string  | `"PAG_PFPJ eq 'PF'"`                                        |
-| REC_PFPJ       | string  | `"REC_PFPJ eq 'PJ'"`                                        |
-| PAG_REGIAO     | string  | `"PAG_REGIAO eq 'SUDESTE'"`                                 |
-| REC_REGIAO     | string  | `"REC_REGIAO eq 'NORDESTE'"`                                |
-| NATUREZA       | string  | `"NATUREZA eq 'P2P'"` (P2P, P2B, B2P, B2B, P2G, G2P)        |
-| FORMAINICIACAO | string  | `"FORMAINICIACAO eq 'DICT'"` (DICT, QRDN, QRES, MANU, INIC) |
-| FINALIDADE     | string  | `"FINALIDADE eq 'Pix'"`                                     |
-| VALOR          | numeric | `"VALOR gt 10000"`                                          |
-| QUANTIDADE     | numeric | `"QUANTIDADE ge 100"`                                       |
+| Column | Type | Filter Example |
+|----|----|----|
+| PAG_PFPJ | string | `"PAG_PFPJ eq 'PF'"` |
+| REC_PFPJ | string | `"REC_PFPJ eq 'PJ'"` |
+| PAG_REGIAO | string | `"PAG_REGIAO eq 'SUDESTE'"` |
+| REC_REGIAO | string | `"REC_REGIAO eq 'NORDESTE'"` |
+| NATUREZA | string | `"NATUREZA eq 'P2P'"` (P2P, P2B, B2P, B2B, P2G, G2P) |
+| FORMAINICIACAO | string | `"FORMAINICIACAO eq 'DICT'"` (DICT, QRDN, QRES, MANU, INIC) |
+| FINALIDADE | string | `"FINALIDADE eq 'Pix'"` |
+| VALOR | numeric | `"VALOR gt 10000"` |
+| QUANTIDADE | numeric | `"QUANTIDADE ge 100"` |
 
 ## See Also
 

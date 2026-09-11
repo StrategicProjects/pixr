@@ -176,7 +176,7 @@ nordeste <- get_pix_transactions_by_municipality(
 #> ── Fetching PIX Transactions by Municipality ──
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'&$filter=Sigla_Regiao%20eq%20'NE'
-#> ✔ Retrieved 3588 records
+#> ✔ Retrieved 17940 records
 
 # Order by value
 top_value <- get_pix_transactions_by_municipality(

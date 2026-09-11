@@ -81,6 +81,6 @@ fraud <- get_pix_fraud_stats(database = "202509", top = 100)
 #> ── Fetching PIX Fraud Statistics (MED) ──
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasFraudesPix(Database=@Database)?$format=json&@Database='202509'&$top=100
-#> ✔ Retrieved 3 records
+#> ✔ Retrieved 8 records
  # \dontrun{}
 ```

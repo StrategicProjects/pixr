@@ -160,7 +160,7 @@ p2p <- get_pix_transaction_stats(
 #> ── Fetching PIX Transaction Statistics ──
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'&$filter=NATUREZA%20eq%20'P2P'
-#> ✔ Retrieved 32860 records
+#> ✔ Retrieved 112139 records
 
 # Filter by region and order by value
 sudeste <- get_pix_transaction_stats(
@@ -184,6 +184,6 @@ filtered <- get_pix_transaction_stats(
 #> ── Fetching PIX Transaction Statistics ──
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'&$filter=NATUREZA%20eq%20'P2P'%20and%20PAG_REGIAO%20eq%20'NORDESTE'
-#> ✔ Retrieved 5811 records
+#> ✔ Retrieved 19739 records
  # \dontrun{}
 ```

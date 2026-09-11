@@ -6,6 +6,7 @@ explore PIX adoption and usage patterns in Brazil.
 ## Setup
 
 ``` r
+
 library(pixr)
 library(dplyr)
 library(tidyr)
@@ -21,6 +22,7 @@ theme_set(theme_minimal(base_size = 12))
 Analyze which financial institutions dominate the PIX keys market:
 
 ``` r
+
 # Get PIX keys data for December 2025
 # Note: date uses YYYY-MM-DD format
 keys <- get_pix_keys(date = "2025-12-01")
@@ -56,6 +58,7 @@ top_institutions |>
 Analyze which types of PIX keys are most popular:
 
 ``` r
+
 # Get keys data and aggregate by type
 keys <- get_pix_keys(date = "2025-12-01")
 
@@ -89,6 +92,7 @@ ggplot(key_summary, aes(x = reorder(TipoChave, -total_keys), y = total_keys / 1e
 Analyze PIX usage patterns across Brazilian regions:
 
 ``` r
+
 # Get transactions by region
 # Note: database uses YYYYMM format
 region_data <- get_pix_transactions_by_region(database = "202512")
@@ -114,6 +118,7 @@ region_data |>
 ## Example 4: State-Level Analysis
 
 ``` r
+
 # Get transactions by state
 state_data <- get_pix_transactions_by_state(database = "202512")
 
@@ -141,6 +146,7 @@ state_data |>
 Analyze transactions by nature (P2P, P2B, B2B, etc.):
 
 ``` r
+
 # Get summary by transaction nature
 nature_summary <- get_pix_summary(database = "202509", group_by = "NATUREZA")
 
@@ -170,6 +176,7 @@ nature_summary |>
 Use OData filters to analyze specific states:
 
 ``` r
+
 # Get transactions for Maranhão only using filter
 maranhao <- get_pix_transactions_by_municipality(
   database = "202512",
@@ -196,6 +203,7 @@ maranhao |>
 ## Example 7: Comparing Regions with Filters
 
 ``` r
+
 # Get Northeast transactions using filter
 nordeste <- get_pix_transaction_stats(
   database = "202509",
@@ -237,6 +245,7 @@ comparison |>
 ## Example 8: P2P vs P2B Analysis
 
 ``` r
+
 # Get P2P transactions
 p2p <- get_pix_transaction_stats(
   database = "202509",
@@ -279,6 +288,7 @@ ggplot(combined, aes(x = PAG_REGIAO, y = value / 1e12, fill = type)) +
 Fetch data for multiple months and analyze trends:
 
 ``` r
+
 # Get Q3 2025 data
 q3_data <- get_pix_transaction_stats_multi(
   databases = c("202507", "202508", "202509")
@@ -311,6 +321,7 @@ ggplot(monthly_nature, aes(x = factor(AnoMes), y = total_value / 1e12, fill = NA
 Analyze how PIX transactions are initiated:
 
 ``` r
+
 # Get summary by initiation method
 method_summary <- get_pix_summary(database = "202509", group_by = "FORMAINICIACAO")
 
@@ -352,6 +363,7 @@ method_summary |>
 Generate a comprehensive summary report:
 
 ``` r
+
 # Function to create a PIX summary for a given month
 create_pix_summary <- function(database, date) {
   # Keys data
@@ -426,6 +438,7 @@ cat(sprintf(
 Export data for use in other tools:
 
 ``` r
+
 # Get comprehensive dataset
 keys <- get_pix_keys(date = "2025-12-01")
 
@@ -449,6 +462,7 @@ write.csv(keys, "pix_keys_202512.csv", row.names = FALSE)
 ## Tips for Large-Scale Analysis
 
 ``` r
+
 # 1. Use column selection to reduce memory usage
 small_data <- get_pix_keys(
   date = "2025-12-01",

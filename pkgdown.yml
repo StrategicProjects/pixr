@@ -1,12 +1,12 @@
-pandoc: 3.1.11
-pkgdown: 2.2.0
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   analysis-examples: analysis-examples.html
   odata-queries: odata-queries.html
   pixr: pixr.html
   understanding-pix-data: understanding-pix-data.html
-last_built: 2026-01-26T12:00Z
+last_built: 2026-09-11T19:17Z
 urls:
   reference: https://monitoramento.pe.gov.br/pixr/reference
   article: https://monitoramento.pe.gov.br/pixr/articles

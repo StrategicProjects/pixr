@@ -23,6 +23,7 @@ This package allows you to retrieve:
 You can install pixr from GitHub:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("StrategicProjects/pixr")
 ```
@@ -32,6 +33,7 @@ remotes::install_github("StrategicProjects/pixr")
 Load the package:
 
 ``` r
+
 library(pixr)
 ```
 
@@ -39,14 +41,15 @@ library(pixr)
 
 Each endpoint requires a specific date parameter:
 
-| Endpoint                  | Parameter  | Format     | R Function                                                                                                                         |
-|---------------------------|------------|------------|------------------------------------------------------------------------------------------------------------------------------------|
-| ChavesPix                 | `date`     | YYYY-MM-DD | [`get_pix_keys()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_keys.md)                                                 |
-| TransacoesPixPorMunicipio | `database` | YYYYMM     | [`get_pix_transactions_by_municipality()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transactions_by_municipality.md) |
-| EstatisticasTransacoesPix | `database` | YYYYMM     | [`get_pix_transaction_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transaction_stats.md)                       |
-| EstatisticasFraudesPix    | `database` | YYYYMM     | [`get_pix_fraud_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_fraud_stats.md)                                   |
+| Endpoint | Parameter | Format | R Function |
+|----|----|----|----|
+| ChavesPix | `date` | YYYY-MM-DD | [`get_pix_keys()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_keys.md) |
+| TransacoesPixPorMunicipio | `database` | YYYYMM | [`get_pix_transactions_by_municipality()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transactions_by_municipality.md) |
+| EstatisticasTransacoesPix | `database` | YYYYMM | [`get_pix_transaction_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transaction_stats.md) |
+| EstatisticasFraudesPix | `database` | YYYYMM | [`get_pix_fraud_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_fraud_stats.md) |
 
 ``` r
+
 # List all available endpoints
 pix_endpoints()
 
@@ -71,6 +74,7 @@ Key types include:
 - **Aleatória (EVP)**: Randomly generated unique identifier
 
 ``` r
+
 # Get all PIX keys data for December 2025
 # Note: date uses YYYY-MM-DD format
 keys <- get_pix_keys(date = "2025-12-01")
@@ -90,6 +94,7 @@ get_pix_keys_summary(date = "2025-12-01", n_top = 20)
 ### Retrieve Transaction Data by Municipality
 
 ``` r
+
 # Get transactions for December 2025
 # Note: database uses YYYYMM format
 muni <- get_pix_transactions_by_municipality(database = "202512")
@@ -112,6 +117,7 @@ region_summary <- get_pix_transactions_by_region(database = "202512")
 ### Retrieve Transaction Statistics
 
 ``` r
+
 # Get detailed transaction statistics for September 2025
 stats <- get_pix_transaction_stats(database = "202509")
 
@@ -136,6 +142,7 @@ q3_data <- get_pix_transaction_stats_multi(
 ### Retrieve Fraud Statistics
 
 ``` r
+
 # Get fraud statistics (MED - Mecanismo Especial de Devolução)
 fraud <- get_pix_fraud_stats(database = "202509")
 ```
@@ -145,6 +152,7 @@ fraud <- get_pix_fraud_stats(database = "202509")
 All functions support OData query parameters for filtering and ordering:
 
 ``` r
+
 # Filter by state
 get_pix_transactions_by_municipality(
   database = "202512",
@@ -167,14 +175,14 @@ get_pix_transaction_stats(
 
 ### Common Filter Examples
 
-| Goal                       | Filter                                            |
-|----------------------------|---------------------------------------------------|
-| Filter by state            | `"Estado eq 'SÃO PAULO'"`                         |
-| Filter by region           | `"Sigla_Regiao eq 'NE'"`                          |
-| Filter by transaction type | `"NATUREZA eq 'P2P'"`                             |
-| Filter by key type         | `"TipoChave eq 'CPF'"`                            |
-| Numeric comparison         | `"VALOR gt 10000"`                                |
-| Multiple conditions        | `"NATUREZA eq 'P2P' and PAG_REGIAO eq 'SUDESTE'"` |
+| Goal | Filter |
+|----|----|
+| Filter by state | `"Estado eq 'SÃO PAULO'"` |
+| Filter by region | `"Sigla_Regiao eq 'NE'"` |
+| Filter by transaction type | `"NATUREZA eq 'P2P'"` |
+| Filter by key type | `"TipoChave eq 'CPF'"` |
+| Numeric comparison | `"VALOR gt 10000"` |
+| Multiple conditions | `"NATUREZA eq 'P2P' and PAG_REGIAO eq 'SUDESTE'"` |
 
 See the [Working with OData
 Queries](https://monitoramento.pe.gov.br/pixr/articles/odata-queries.md)
@@ -186,6 +194,7 @@ All functions return tibbles that integrate seamlessly with the
 tidyverse:
 
 ``` r
+
 library(dplyr)
 library(ggplot2)
 
@@ -212,6 +221,7 @@ get_pix_transactions_by_region(database = "202512") |>
 The default timeout is 120 seconds. Change it for slow connections:
 
 ``` r
+
 # Set timeout to 3 minutes
 pix_timeout(180)
 
@@ -227,6 +237,7 @@ options(pixr.timeout = 180)
 By default, all functions print progress messages. You can disable this:
 
 ``` r
+
 # Suppress messages
 data <- get_pix_keys(date = "2025-12-01", verbose = FALSE)
 ```
@@ -238,6 +249,7 @@ Use
 to see the URL that would be called:
 
 ``` r
+
 # See the URL for a query
 pix_url(
   "TransacoesPixPorMunicipio",
