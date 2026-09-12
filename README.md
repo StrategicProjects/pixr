@@ -2,8 +2,11 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/StrategicProjects/pixr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/StrategicProjects/pixr/actions/workflows/R-CMD-check.yaml)
-[![CRAN status](https://www.r-pkg.org/badges/version/pixr)](https://CRAN.R-project.org/package=pixr)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/pixr)  
+![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/pixr)
+  ![License](https://img.shields.io/badge/license-MIT-darkviolet.svg) 
+![](https://img.shields.io/badge/devel%20version-0.1.0-blue.svg)
 <!-- badges: end -->
 
 > Access Brazilian Central Bank PIX Open Data API from R

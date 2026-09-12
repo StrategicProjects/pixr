@@ -117,7 +117,7 @@ clean_fraud_data <- function(data) {
 #' @export
 #'
 #' @examples
-#' \dontrun{# It usually takes much longer than 5 seconds.
+#' \donttest{# It usually takes much longer than 5 seconds.
 #' # Get fraud data for Q3 2025
 #' q3_fraud <- get_pix_fraud_stats_multi(
 #'   databases = c("202507", "202508", "202509")
