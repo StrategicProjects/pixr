@@ -38,23 +38,23 @@ results <- pix_ping()
 #> ── Testing BCB PIX API Endpoints ──
 #> 
 #> ℹ Testing ChavesPix...
-#> ✔ ChavesPix: "OK" (1.6s)
+#> ✔ ChavesPix: "OK" (1.58s)
 #> ℹ Testing TransacoesPixPorMunicipio...
-#> ✔ TransacoesPixPorMunicipio: "OK" (1.69s)
+#> ✔ TransacoesPixPorMunicipio: "OK" (1.68s)
 #> ℹ Testing EstatisticasTransacoesPix...
-#> ✔ EstatisticasTransacoesPix: "OK" (12.23s)
+#> ✔ EstatisticasTransacoesPix: "OK" (12.48s)
 #> ℹ Testing EstatisticasFraudesPix...
-#> ✔ EstatisticasFraudesPix: "OK" (31.75s)
+#> ✔ EstatisticasFraudesPix: "OK" (27.77s)
 #> ────────────────────────────────────────────────────────────────────────────────
-#> ℹ Total time: 47.27s
+#> ℹ Total time: 43.52s
 #> ℹ Success: 4/4 endpoints
 print(results)
 #> # A tibble: 4 × 3
 #>   endpoint                  status time_seconds
 #>   <chr>                     <chr>         <dbl>
-#> 1 ChavesPix                 OK             1.60
-#> 2 TransacoesPixPorMunicipio OK             1.69
-#> 3 EstatisticasTransacoesPix OK            12.2 
-#> 4 EstatisticasFraudesPix    OK            31.7 
+#> 1 ChavesPix                 OK             1.58
+#> 2 TransacoesPixPorMunicipio OK             1.68
+#> 3 EstatisticasTransacoesPix OK            12.5 
+#> 4 EstatisticasFraudesPix    OK            27.8 
  # \dontrun{}
 ```

@@ -147,9 +147,14 @@ transactions.
 ## Examples
 
 ``` r
-if (FALSE) # It usually takes much longer than 5 seconds.
+# It usually takes much longer than 5 seconds.
 # Get transaction statistics for September 2025
 stats <- get_pix_transaction_stats(database = "202509")
+#> 
+#> ── Fetching PIX Transaction Statistics ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'
+#> ✔ Retrieved 177045 records
 
 # Filter by transaction nature
 p2p <- get_pix_transaction_stats(
@@ -185,5 +190,4 @@ filtered <- get_pix_transaction_stats(
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'&$filter=NATUREZA%20eq%20'P2P'%20and%20PAG_REGIAO%20eq%20'NORDESTE'
 #> ✔ Retrieved 19739 records
- # \dontrun{}
 ```

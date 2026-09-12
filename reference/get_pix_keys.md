@@ -102,9 +102,14 @@ the specified date. For example, `date = "2025-12-01"` returns data for
 ## Examples
 
 ``` r
-if (FALSE) # It usually takes much longer than 5 seconds.
+# It usually takes much longer than 5 seconds.
 # Get all PIX keys data for December 2025
 keys <- get_pix_keys(date = "2025-12-01")
+#> 
+#> ── Fetching PIX Keys Stock Data ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/ChavesPix(Data=@Data)?$format=json&@Data='2025-12-01'
+#> ✔ Retrieved 55496 records
 
 # Filter by key type and order by quantity
 cpf_keys <- get_pix_keys(
@@ -129,5 +134,4 @@ bb_keys <- get_pix_keys(
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/ChavesPix(Data=@Data)?$format=json&@Data='2025-12-01'&$filter=Nome%20eq%20'BANCO%20DO%20BRASIL%20S.A.'
 #> ! No data returned from API
- # \dontrun{}
 ```

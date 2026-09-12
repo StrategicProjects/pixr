@@ -29,8 +29,15 @@ with PIX transaction data aggregated by state.
 ## Examples
 
 ``` r
-if (FALSE) # It usually takes much longer than 5 seconds.
+# It usually takes much longer than 5 seconds.
 # Get state-level aggregates for December 2025
 states <- get_pix_transactions_by_state(database = "202512")
- # \dontrun{}
+#> 
+#> ── Fetching PIX Transactions by State ──
+#> 
+#> ── Fetching PIX Transactions by Municipality ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'
+#> ✔ Retrieved 55720 records
+#> ✔ Aggregated data for 280 states
 ```

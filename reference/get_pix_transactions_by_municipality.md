@@ -150,9 +150,14 @@ municipality, person type (PF/PJ), and transaction direction
 ## Examples
 
 ``` r
-if (FALSE) # It usually takes much longer than 5 seconds.
+# It usually takes much longer than 5 seconds.
 # Get municipality transaction data for December 2025
 muni <- get_pix_transactions_by_municipality(database = "202512")
+#> 
+#> ── Fetching PIX Transactions by Municipality ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'
+#> ✔ Retrieved 55720 records
 
 # Filter by state
 maranhao <- get_pix_transactions_by_municipality(
@@ -189,5 +194,4 @@ top_value <- get_pix_transactions_by_municipality(
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'&$orderby=VL_PagadorPF%20desc&$top=100
 #> ✔ Retrieved 100 records
- # \dontrun{}
 ```

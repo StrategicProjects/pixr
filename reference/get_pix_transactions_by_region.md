@@ -28,8 +28,15 @@ with PIX transaction data aggregated by region.
 ## Examples
 
 ``` r
-if (FALSE) # It usually takes much longer than 5 seconds.
+# It usually takes much longer than 5 seconds.
 # Get region-level aggregates
 regions <- get_pix_transactions_by_region(database = "202512")
- # \dontrun{}
+#> 
+#> ── Fetching PIX Transactions by Region ──
+#> 
+#> ── Fetching PIX Transactions by Municipality ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'
+#> ✔ Retrieved 55720 records
+#> ✔ Aggregated data for 60 regions
 ```

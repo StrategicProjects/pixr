@@ -34,9 +34,23 @@ with aggregated transaction statistics.
 ## Examples
 
 ``` r
-if (FALSE) # It usually takes much longer than 5 seconds.
+# It usually takes much longer than 5 seconds.
 # Summary by transaction nature
 get_pix_summary(database = "202509", group_by = "NATUREZA")
+#> 
+#> ── Fetching PIX Transaction Summary ──
+#> 
+#> ── Fetching PIX Transaction Statistics ──
+#> 
+#> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'
+#> Error in value[[3L]](cond): Connection error to BCB PIX API
+#> ✖ Failed to perform HTTP request. Caused by error in
+#>   `curl::curl_fetch_memory()`: ! Timeout was reached [olinda.bcb.gov.br]:
+#>   Operation timed out after 120001 milliseconds with 0 bytes received
+#> ℹ Check your internet connection
+#> ℹ The BCB API might be temporarily unavailable
+#> ℹ URL:
+#>   https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'
 
 # Summary by payer region
 get_pix_summary(database = "202509", group_by = "PAG_REGIAO")
@@ -82,5 +96,4 @@ get_pix_summary(database = "202509", group_by = c("NATUREZA", "FORMAINICIACAO"))
 #>  9 B2B      QRDN               7.19e11  1088029514     661.        824
 #> 10 P2B      QRES               4.76e11  3274304287     146.       4361
 #> # ℹ 58 more rows
- # \dontrun{}
 ```
