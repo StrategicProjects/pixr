@@ -3,9 +3,12 @@ Title: Access Brazilian Central Bank 'PIX' Open Data 'API'
 Version: 0.1.0
 Authors@R: c(
     person("Andre", "Leite", email = "leite@castlab.org", role = c("aut", "cre")),
-    person("Marcos", "Wasiliew", email = "marcos.wasiliew@sepe.pe.gov.br", role = "aut"),
+    person("Marcos", "Wasiliew", email = "marcos.wasiliew@gmail.com", role = "aut",
+           comment = c(ORCID = "0009-0004-4694-3159")),
     person("Hugo", "Vasconcelos", email = "hugo.vasconcelos@ufpe.br", role = "aut"),
-    person("Diogo", "Bezerra", email = "diogo.bezerra@ufpe.br", role = "aut"))
+    person("Diogo", "Bezerra", email = "diogo.bezerra@ufpe.br", role = "aut"),
+    person("Júlia", "Nascimento Barreto", email = "juliabarreto@gd.seplag.pe.gov.br", role = "aut",
+           comment = c(ORCID = "0009-0004-2851-7770")))
 Description: Provides a 'tidyverse'-style interface to the Brazilian Central Bank (<https://www.bcb.gov.br>) 'PIX' Open Data 'API' <https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/aplicacao#!/recursos>. 
     Retrieve statistics on 'PIX' keys, transactions by municipality, and monthly 
     transaction summaries. All functions return 'tibbles' and support 'OData' 
