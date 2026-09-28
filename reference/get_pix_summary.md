@@ -43,14 +43,21 @@ get_pix_summary(database = "202509", group_by = "NATUREZA")
 #> ── Fetching PIX Transaction Statistics ──
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'
-#> Error in value[[3L]](cond): Connection error to BCB PIX API
-#> ✖ Failed to perform HTTP request. Caused by error in
-#>   `curl::curl_fetch_memory()`: ! Timeout was reached [olinda.bcb.gov.br]:
-#>   Operation timed out after 120001 milliseconds with 0 bytes received
-#> ℹ Check your internet connection
-#> ℹ The BCB API might be temporarily unavailable
-#> ℹ URL:
-#>   https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&@Database='202509'
+#> ✔ Retrieved 177045 records
+#> ✔ Aggregated into 10 groups
+#> # A tibble: 10 × 5
+#>    NATUREZA       total_value total_count avg_value n_records
+#>    <chr>                <dbl>       <dbl>     <dbl>     <int>
+#>  1 B2B                1.73e13  3228144779    5347.       3343
+#>  2 P2P                8.82e12 32966181382     268.     112139
+#>  3 B2P                4.07e12  7493901511     544.      15513
+#>  4 P2B                4.07e12 36594268114     111.      26985
+#>  5 B2G                2.05e11    95032570    2158.       1571
+#>  6 G2B                1.12e11     4061104   27590.       1437
+#>  7 P2G                7.94e10   203634511     390.       9467
+#>  8 G2G                6.79e10      830252   81828.        661
+#>  9 G2P                5.00e10    35117902    1424.       5920
+#> 10 Nao disponivel     5.18e 8     7492302      69.1         9
 
 # Summary by payer region
 get_pix_summary(database = "202509", group_by = "PAG_REGIAO")

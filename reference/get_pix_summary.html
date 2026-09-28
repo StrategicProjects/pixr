@@ -90,14 +90,21 @@ data to retrieve. This parameter is <strong>required</strong>.</p></dd>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Fetching PIX Transaction Statistics</span> ──</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&amp;@Database='202509'</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in value[[3L]](cond):</span> Connection error to BCB PIX API</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Failed to perform HTTP request. <span style="font-weight: bold;">Caused by error in</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   <span style="font-weight: bold;">`curl::curl_fetch_memory()`:</span> <span style="color: #BBBB00;">!</span> Timeout was reached [olinda.bcb.gov.br]:</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   Operation timed out after 120001 milliseconds with 0 bytes received</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Check your internet connection</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The BCB API might be temporarily unavailable</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> URL:</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span>   https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasTransacoesPix(Database=@Database)?$format=json&amp;@Database='202509'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Retrieved 177045 records</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> Aggregated into 10 groups</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    NATUREZA       total_value total_count avg_value n_records</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> B2B                1.73<span style="color: #949494;">e</span>13  <span style="text-decoration: underline;">3</span>228<span style="text-decoration: underline;">144</span>779    <span style="text-decoration: underline;">5</span>347.       <span style="text-decoration: underline;">3</span>343</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> P2P                8.82<span style="color: #949494;">e</span>12 <span style="text-decoration: underline;">32</span>966<span style="text-decoration: underline;">181</span>382     268.     <span style="text-decoration: underline;">112</span>139</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> B2P                4.07<span style="color: #949494;">e</span>12  <span style="text-decoration: underline;">7</span>493<span style="text-decoration: underline;">901</span>511     544.      <span style="text-decoration: underline;">15</span>513</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> P2B                4.07<span style="color: #949494;">e</span>12 <span style="text-decoration: underline;">36</span>594<span style="text-decoration: underline;">268</span>114     111.      <span style="text-decoration: underline;">26</span>985</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> B2G                2.05<span style="color: #949494;">e</span>11    95<span style="text-decoration: underline;">032</span>570    <span style="text-decoration: underline;">2</span>158.       <span style="text-decoration: underline;">1</span>571</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> G2B                1.12<span style="color: #949494;">e</span>11     4<span style="text-decoration: underline;">061</span>104   <span style="text-decoration: underline;">27</span>590.       <span style="text-decoration: underline;">1</span>437</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> P2G                7.94<span style="color: #949494;">e</span>10   203<span style="text-decoration: underline;">634</span>511     390.       <span style="text-decoration: underline;">9</span>467</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> G2G                6.79<span style="color: #949494;">e</span>10      <span style="text-decoration: underline;">830</span>252   <span style="text-decoration: underline;">81</span>828.        661</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> G2P                5.00<span style="color: #949494;">e</span>10    35<span style="text-decoration: underline;">117</span>902    <span style="text-decoration: underline;">1</span>424.       <span style="text-decoration: underline;">5</span>920</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Nao disponivel     5.18<span style="color: #949494;">e</span> 8     7<span style="text-decoration: underline;">492</span>302      69.1         9</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Summary by payer region</span></span></span>
 <span class="r-in"><span><span class="fu">get_pix_summary</span><span class="op">(</span>database <span class="op">=</span> <span class="st">"202509"</span>, group_by <span class="op">=</span> <span class="st">"PAG_REGIAO"</span><span class="op">)</span></span></span>
@@ -151,7 +158,7 @@ data to retrieve. This parameter is <strong>required</strong>.</p></dd>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://github.com/milkway" class="external-link">A. Leite</a>, <a href="https://github.com/marcoswasiliew" class="external-link">M. Wasilew</a>, <a href="https://github.com/hugoavmedeiros" class="external-link">H. Vasconcelos</a>, and <a href="ttps://github.com/DiCarvalhoB">D. Bezerra</a>. Data provided by <a href="https://www.bcb.gov.br/" class="external-link">Brazilian Central Bank</a>.</p>
+  <p>Developed by <a href="https://github.com/milkway" class="external-link">A. Leite</a>, <a href="https://github.com/marcoswasiliew" class="external-link">M. Wasiliew</a>, <a href="https://github.com/hugoavmedeiros" class="external-link">H. Vasconcelos</a>, and <a href="ttps://github.com/DiCarvalhoB">D. Bezerra</a>. Data provided by <a href="https://www.bcb.gov.br/" class="external-link">Brazilian Central Bank</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
