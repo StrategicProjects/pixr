@@ -2,7 +2,7 @@
 
 ## Authors
 
-- **[Andre Leite](https://github.com/milkway)**. Author, maintainer.
+- **[André Leite](https://github.com/milkway)**. Author, maintainer.
 
 - **[Marcos Wasiliew](https://github.com/marcoswasiliew)**. Author.
   [](https://orcid.org/0009-0004-4694-3159)
@@ -25,7 +25,7 @@ package version 0.1.0, <https://github.com/StrategicProjects/pixr>.
 
     @Manual{,
       title = {pixr: Access Brazilian Central Bank 'PIX' Open Data 'API'},
-      author = {Andre Leite and Marcos Wasiliew and Hugo Vasconcelos and Diogo Bezerra and Júlia {Nascimento Barreto}},
+      author = {André Leite and Marcos Wasiliew and Hugo Vasconcelos and Diogo Bezerra and Júlia {Nascimento Barreto}},
       year = {2026},
       note = {R package version 0.1.0},
       url = {https://github.com/StrategicProjects/pixr},
