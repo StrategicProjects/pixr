@@ -38,23 +38,23 @@ results <- pix_ping()
 #> ── Testing BCB PIX API Endpoints ──
 #> 
 #> ℹ Testing ChavesPix...
-#> ✔ ChavesPix: "OK" (11.48s)
+#> ✔ ChavesPix: "OK" (0.2s)
 #> ℹ Testing TransacoesPixPorMunicipio...
-#> ✔ TransacoesPixPorMunicipio: "OK" (13.46s)
+#> ✔ TransacoesPixPorMunicipio: "OK" (0.2s)
 #> ℹ Testing EstatisticasTransacoesPix...
-#> ✔ EstatisticasTransacoesPix: "OK" (0.2s)
+#> ✔ EstatisticasTransacoesPix: "OK" (12.65s)
 #> ℹ Testing EstatisticasFraudesPix...
-#> ✖ EstatisticasFraudesPix: Failed to perform HTTP request. Caused by error in `curl::curl_fetch_memory()`: ! Timeout was reached [olinda.bcb.gov.br]: Operation timed out after 120002 milliseconds with 0 bytes received (120.01s)
+#> ✔ EstatisticasFraudesPix: "OK" (0.2s)
 #> ────────────────────────────────────────────────────────────────────────────────
-#> ℹ Total time: 145.17s
-#> ℹ Success: 3/4 endpoints
+#> ℹ Total time: 13.24s
+#> ℹ Success: 4/4 endpoints
 print(results)
 #> # A tibble: 4 × 3
-#>   endpoint                  status                                  time_seconds
-#>   <chr>                     <chr>                                          <dbl>
-#> 1 ChavesPix                 "OK"                                          11.5  
-#> 2 TransacoesPixPorMunicipio "OK"                                          13.5  
-#> 3 EstatisticasTransacoesPix "OK"                                           0.204
-#> 4 EstatisticasFraudesPix    "Failed to perform HTTP request.\n\u00…      120.   
+#>   endpoint                  status time_seconds
+#>   <chr>                     <chr>         <dbl>
+#> 1 ChavesPix                 OK            0.196
+#> 2 TransacoesPixPorMunicipio OK            0.200
+#> 3 EstatisticasTransacoesPix OK           12.6  
+#> 4 EstatisticasFraudesPix    OK            0.199
  # \dontrun{}
 ```
