@@ -92,5 +92,8 @@ Authors:
 - Diogo Bezerra <diogo.bezerra@ufpe.br>
   ([ORCID](https://orcid.org/0000-0002-1216-8674))
 
+- Carlos Amorim <carlos.agaf@ufpe.br>
+  ([ORCID](https://orcid.org/0000-0001-6315-8305))
+
 - Júlia Nascimento Barreto <juliabarreto@gd.seplag.pe.gov.br>
   ([ORCID](https://orcid.org/0009-0004-2851-7770))
