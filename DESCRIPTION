@@ -10,6 +10,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-6249-0920")),
     person("Diogo", "Bezerra", email = "diogo.bezerra@ufpe.br", role = "aut",
            comment = c(ORCID = "0000-0002-1216-8674")),
+    person("Carlos", "Amorim", email = "carlos.agaf@ufpe.br", role = "aut",
+           comment = c(ORCID = "0000-0001-6315-8305")),
     person("Júlia", "Nascimento Barreto", email = "juliabarreto@gd.seplag.pe.gov.br", role = "aut",
            comment = c(ORCID = "0009-0004-2851-7770")))
 Description: Provides a 'tidyverse'-style interface to the Brazilian Central Bank (<https://www.bcb.gov.br>) 'PIX' Open Data 'API' <https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/aplicacao#!/recursos>. 
