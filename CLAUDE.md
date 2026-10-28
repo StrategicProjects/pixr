@@ -6,8 +6,9 @@ Open Data API** (Olinda / OData). Returns tibbles. Python counterpart:
 `../alepe`.
 
 - **Repo:** https://github.com/StrategicProjects/pixr (public, branch `main`).
-- **CRAN:** 0.1.0 published; **0.1.1 submitted 2026-10-28** (in `incoming/pretest`).
-  After acceptance: tag `v0.1.1`, delete `CRAN-SUBMISSION`.
+- **CRAN:** 0.1.1 accepted 2026-10-28 (tagged `v0.1.1`). Release ritual:
+  submit, record in `CRAN-SUBMISSION`; after acceptance tag `vX.Y.Z` at the
+  submitted SHA and delete `CRAN-SUBMISSION`.
 - **Docs site:** https://strategicprojects.github.io/pixr/ — GitHub Pages,
   deployed by `.github/workflows/pkgdown.yaml` to the `gh-pages` branch.
   `docs/` is NOT tracked on `main` (gitignored). The old
