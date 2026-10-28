@@ -38,29 +38,29 @@ results <- pix_ping()
 #> ── Testing BCB PIX API Endpoints ──
 #> 
 #> ℹ Testing ChavesPix...
-#> ✔ ChavesPix: "OK" (0.18s)
+#> ✔ ChavesPix: "OK" (0.2s)
 #> ℹ Testing TransacoesPixPorMunicipio...
-#> ✔ TransacoesPixPorMunicipio: "OK" (0.2s)
+#> ✔ TransacoesPixPorMunicipio: "OK" (1.75s)
 #> ℹ Testing EstatisticasTransacoesPix...
-#> ✔ EstatisticasTransacoesPix: "OK" (27.98s)
+#> ✔ EstatisticasTransacoesPix: "OK" (0.21s)
 #> ℹ Testing EstatisticasFraudesPix...
-#> ✔ EstatisticasFraudesPix: "OK" (0.18s)
+#> ✔ EstatisticasFraudesPix: "OK" (0.19s)
 #> ℹ Testing CnaePorteRecebedor...
-#> ✔ CnaePorteRecebedor: "OK" (1.87s)
+#> ✔ CnaePorteRecebedor: "OK" (1.76s)
 #> ℹ Testing PixUsuariosCadastradosDICT...
-#> ✔ PixUsuariosCadastradosDICT: "OK" (0.17s)
+#> ✔ PixUsuariosCadastradosDICT: "OK" (0.19s)
 #> ────────────────────────────────────────────────────────────────────────────────
-#> ℹ Total time: 30.58s
+#> ℹ Total time: 4.29s
 #> ℹ Success: 6/6 endpoints
 print(results)
 #> # A tibble: 6 × 3
 #>   endpoint                   status time_seconds
 #>   <chr>                      <chr>         <dbl>
-#> 1 ChavesPix                  OK            0.177
-#> 2 TransacoesPixPorMunicipio  OK            0.196
-#> 3 EstatisticasTransacoesPix  OK           28.0  
-#> 4 EstatisticasFraudesPix     OK            0.176
-#> 5 CnaePorteRecebedor         OK            1.87 
-#> 6 PixUsuariosCadastradosDICT OK            0.173
+#> 1 ChavesPix                  OK            0.195
+#> 2 TransacoesPixPorMunicipio  OK            1.75 
+#> 3 EstatisticasTransacoesPix  OK            0.208
+#> 4 EstatisticasFraudesPix     OK            0.191
+#> 5 CnaePorteRecebedor         OK            1.76 
+#> 6 PixUsuariosCadastradosDICT OK            0.187
  # \dontrun{}
 ```
