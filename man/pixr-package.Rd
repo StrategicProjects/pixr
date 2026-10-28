@@ -80,6 +80,7 @@ pix_timeout()
 Useful links:
 \itemize{
   \item \url{https://github.com/StrategicProjects/pixr}
+  \item \url{https://strategicprojects.github.io/pixr/}
   \item Report bugs at \url{https://github.com/StrategicProjects/pixr/issues}
 }
 

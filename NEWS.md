@@ -31,7 +31,8 @@
 * Added a unit test suite covering the offline helpers (date parsing, URL
   building, column validation, and formatting).
 * Removed an unused internal helper (`format_orderby()`).
-* `DESCRIPTION` now declares `Language: en-US`.
+* `DESCRIPTION` now declares `Language: en-US` and links to the
+  documentation site at <https://strategicprojects.github.io/pixr/>.
 * Corrected this NEWS file: the 0.1.0 entry listed a function
   (`get_pix_growth_stats()`) that was never part of the package.
 

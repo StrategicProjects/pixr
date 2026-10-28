@@ -42,6 +42,7 @@ Suggests:
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Language: en-US
-URL: https://github.com/StrategicProjects/pixr
+URL: https://github.com/StrategicProjects/pixr,
+    https://strategicprojects.github.io/pixr/
 BugReports: https://github.com/StrategicProjects/pixr/issues
 Config/roxygen2/version: 8.0.0
