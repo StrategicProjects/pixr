@@ -26,6 +26,8 @@ different parameters:
 \item TransacoesPixPorMunicipio: \code{list(DataBase = "YYYYMM")}
 \item EstatisticasTransacoesPix: \code{list(Database = "YYYYMM")}
 \item EstatisticasFraudesPix: \code{list(Database = "YYYYMM")}
+\item CnaePorteRecebedor: \code{list(Database = "YYYYMM")}
+\item PixUsuariosCadastradosDICT: no parameters (pass \code{NULL})
 }}
 
 \item{filter}{OData filter expression as a character string.}

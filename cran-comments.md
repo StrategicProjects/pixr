@@ -1,27 +1,32 @@
+# pixr 0.1.1
+
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-* This is a resubmission.
+## Changes in this release
 
-## Resubmission
+This is a minor update to the package:
 
-This is a resubmission. In this version I have addressed the comments from Konstanze Lauseker:
+* Added support for two endpoints introduced in the upstream API:
+  `get_pix_cnae_stats()` (CnaePorteRecebedor) and `get_pix_dict_users()`
+  (PixUsuariosCadastradosDICT).
+* Updated author metadata: added ORCID iDs for all authors.
+* Fixed the User-Agent string sent with API requests (it pointed to a
+  placeholder URL).
+* `top` and column name inputs are now validated with clear messages.
+* Added a unit test suite for the offline helpers (no tests hit the API).
+* NEWS.md is now included in the package build.
 
-### 1. Single quotes around BCB
-- Removed the 'BCB' acronym from the DESCRIPTION file and replaced it with the full API web reference.
+## URLs
 
-### 2. Web reference for API
-- Added the API web reference with angle brackets for auto-linking in the Description field:
-```
-<https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/aplicacao#!/recursos>
-```
+The BCB API URLs (olinda.bcb.gov.br) may return 403 to automated URL
+checkers; they load normally in a browser. These are the same URLs
+accepted in the 0.1.0 submission.
 
-### 3. Examples with \dontrun{}
-- Replaced `\dontrun{}` with `\donttest{}` for all examples that require API calls, 
-  as they depend on external API availability and may take *longer than 5 seconds*
-  due to network latency.
+## Test environments
 
-## Uwe Ligges: Found the following (possibly) invalid URLs
-  - URL: https://github.com/yourname/pixr/actions/workflows/R-CMD-check.yaml
-  - Thank you for your feedback. The invalid URL has been corrected. 
+* Local: macOS, R 4.6.0
+* All examples that call the web API are wrapped in \donttest{} or
+  \dontrun{}, as in the previous release, since they depend on external
+  API availability and may take longer than 5 seconds.

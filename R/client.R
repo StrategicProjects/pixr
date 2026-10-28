@@ -93,7 +93,14 @@ pix_request <- function(endpoint,
   }
   
   if (!is.null(top)) {
-    query_parts <- c(query_parts, paste0("$top=", as.integer(top)))
+    top <- suppressWarnings(as.integer(top[[1]]))
+    if (is.na(top) || top <= 0) {
+      cli::cli_abort(c(
+        "Invalid {.arg top} value",
+        "i" = "Expected: a positive whole number"
+      ))
+    }
+    query_parts <- c(query_parts, paste0("$top=", top))
   }
   
   # if (!is.null(skip)) {
@@ -105,7 +112,7 @@ pix_request <- function(endpoint,
       "i" = "Pagination with skip is not currently available",
       "i" = "Use {.arg top} to limit results instead"
     ))
-    # Não adiciona à query - API não suporta
+    # Not added to the query: the API does not support $skip
   }
   
   # Build full URL - encode only spaces as %20
@@ -121,7 +128,7 @@ pix_request <- function(endpoint,
     httr2::req_headers(
       Accept = "application/json;odata.metadata=minimal"
     ) |>
-    httr2::req_user_agent("pixr R package (https://github.com/yourname/pixr)") |>
+    httr2::req_user_agent("pixr R package (https://github.com/StrategicProjects/pixr)") |>
     httr2::req_timeout(timeout_seconds) |>
     httr2::req_retry(max_tries = 3, backoff = ~ 2)
   
@@ -252,7 +259,7 @@ validate_columns <- function(columns, valid_columns) {
   
   if (length(invalid) > 0) {
     cli::cli_warn(c(
-      "Unknown column{?s} will be ignored",
+      "Ignoring {length(invalid)} unknown column{?s}",
       "x" = "Invalid: {.val {invalid}}",
       "i" = "Valid columns: {.val {valid_columns}}"
     ))
@@ -264,39 +271,4 @@ validate_columns <- function(columns, valid_columns) {
   }
   
   columns
-}
-
-#' Format orderby parameter
-#'
-#' @param orderby Column name, optionally with "-" prefix for descending
-#' @param valid_columns Vector of valid column names
-#'
-#' @return Formatted orderby string or NULL
-#' @noRd
-format_orderby <- function(orderby, valid_columns = NULL) {
-  if (is.null(orderby) || !nzchar(orderby)) {
-    return(NULL)
-  }
-  
-  # Check for descending prefix
-  if (startsWith(orderby, "-")) {
-    col <- substring(orderby, 2)
-    direction <- "desc"
-  } else {
-    col <- orderby
-    direction <- "asc"
-  }
-  
-  # Validate column if valid_columns provided
-  if (!is.null(valid_columns) && !col %in% valid_columns) {
-    cli::cli_warn(c(
-      "Invalid orderby column",
-      "x" = "Column '{col}' not found",
-      "i" = "Valid columns: {.val {valid_columns}}",
-      "!" = "orderby will be ignored"
-    ))
-    return(NULL)
-  }
-  
-  paste(col, direction)
 }

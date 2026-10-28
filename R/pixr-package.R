@@ -12,10 +12,12 @@
 #' * [get_pix_transactions_by_municipality()]: Get PIX transactions by municipality
 #' * [get_pix_transaction_stats()]: Get detailed PIX transaction statistics
 #' * [get_pix_fraud_stats()]: Get fraud statistics (MED)
+#' * [get_pix_cnae_stats()]: Get statistics by receiver CNAE section and size
+#' * [get_pix_dict_users()]: Get the monthly series of users registered in DICT
 #'
 #' @section API Endpoints:
 #'
-#' The package provides access to 4 endpoints, each with different parameters:
+#' The package provides access to 6 endpoints, each with different parameters:
 #'
 #' | Endpoint | Parameter | Format |
 #' |----------|-----------|--------|
@@ -23,6 +25,8 @@
 #' | TransacoesPixPorMunicipio | DataBase | YYYYMM |
 #' | EstatisticasTransacoesPix | Database | YYYYMM |
 #' | EstatisticasFraudesPix | Database | YYYYMM |
+#' | CnaePorteRecebedor | Database | YYYYMM |
+#' | PixUsuariosCadastradosDICT | (none) | - |
 #'
 #' @section API Information:
 #'
@@ -58,7 +62,6 @@
 #' pix_timeout()
 #' ```
 #'
-#' @docType package
 #' @name pixr-package
 #' @aliases pixr
 #' @keywords internal

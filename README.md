@@ -6,7 +6,7 @@
 ![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/pixr)  
 ![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/pixr)
   ![License](https://img.shields.io/badge/license-MIT-darkviolet.svg) 
-![](https://img.shields.io/badge/devel%20version-0.1.0-blue.svg)
+![](https://img.shields.io/badge/devel%20version-0.1.1-blue.svg)
 <!-- badges: end -->
 
 > Access Brazilian Central Bank PIX Open Data API from R
@@ -18,6 +18,10 @@
 ## Installation
 
 ```r
+# From CRAN
+install.packages("pixr")
+
+# Development version
 # install.packages("remotes")
 remotes::install_github("StrategicProjects/pixr")
 ```
@@ -46,6 +50,8 @@ Each endpoint has a different parameter name and format:
 | `TransacoesPixPorMunicipio` | `DataBase` | `YYYYMM` | `get_pix_transactions_by_municipality()` |
 | `EstatisticasTransacoesPix` | `Database` | `YYYYMM` | `get_pix_transaction_stats()` |
 | `EstatisticasFraudesPix` | `Database` | `YYYYMM` | `get_pix_fraud_stats()` |
+| `CnaePorteRecebedor` | `Database` | `YYYYMM` | `get_pix_cnae_stats()` |
+| `PixUsuariosCadastradosDICT` | (none) | - | `get_pix_dict_users()` |
 
 ## Quick Start
 

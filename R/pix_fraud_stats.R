@@ -18,7 +18,7 @@
 #'   data to retrieve. This parameter is **required**.
 #' @param filter OData filter expression as a character string.
 #' @param columns Character vector of columns to return. If NULL, returns all
-#'   columns.
+#'   columns. See `pix_columns("fraud")` for the full schema.
 #' @param top Integer; maximum number of records to return.
 #' @param skip Integer; number of records to skip (for pagination).
 #' @param orderby Character string specifying the column to sort by. Use
@@ -56,7 +56,10 @@ get_pix_fraud_stats <- function(database,
   if (verbose) {
     cli::cli_h2("Fetching PIX Fraud Statistics (MED)")
   }
-  
+
+  # Validate columns against the known schema
+  columns <- validate_columns(columns, pix_columns("fraud")$column)
+
   # Parse database parameter
   database <- parse_year_month(database)
   

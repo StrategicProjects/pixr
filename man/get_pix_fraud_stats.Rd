@@ -21,7 +21,7 @@ data to retrieve. This parameter is \strong{required}.}
 \item{filter}{OData filter expression as a character string.}
 
 \item{columns}{Character vector of columns to return. If NULL, returns all
-columns.}
+columns. See \code{pix_columns("fraud")} for the full schema.}
 
 \item{top}{Integer; maximum number of records to return.}
 

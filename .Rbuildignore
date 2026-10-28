@@ -11,9 +11,9 @@
 ^revdep$
 ^vignettes/.*_cache$
 ^vignettes/.*\.html$
-^NEWS\.md$
 ^.DS_Store$
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
 ^\.positai$
 ^\.claude$
+^\.Rhistory$

@@ -29,7 +29,13 @@ pix_endpoints <- function() {
     "Transaction statistics with breakdowns",
     
     "EstatisticasFraudesPix", "Database", "YYYYMM", "get_pix_fraud_stats()",
-    "Fraud statistics (MED)"
+    "Fraud statistics (MED)",
+
+    "CnaePorteRecebedor", "Database", "YYYYMM", "get_pix_cnae_stats()",
+    "Statistics by receiver CNAE section and company size",
+
+    "PixUsuariosCadastradosDICT", NA_character_, NA_character_, "get_pix_dict_users()",
+    "Monthly series of users registered in DICT"
   )
 }
 
@@ -39,7 +45,7 @@ pix_endpoints <- function() {
 #' Returns detailed information about the columns available for a specific endpoint.
 #'
 #' @param endpoint Character string specifying the endpoint. One of:
-#'   "keys", "municipality", "stats", or "fraud".
+#'   "keys", "municipality", "stats", "fraud", "cnae", or "dict_users".
 #'
 #' @return A [tibble::tibble] with column names, types, and descriptions.
 #'
@@ -50,7 +56,10 @@ pix_endpoints <- function() {
 #' pix_columns("municipality")
 #' pix_columns("stats")
 #' pix_columns("fraud")
-pix_columns <- function(endpoint = c("keys", "municipality", "stats", "fraud")) {
+#' pix_columns("cnae")
+#' pix_columns("dict_users")
+pix_columns <- function(endpoint = c("keys", "municipality", "stats", "fraud",
+                                     "cnae", "dict_users")) {
   endpoint <- match.arg(endpoint)
   
   switch(endpoint,
@@ -106,7 +115,56 @@ pix_columns <- function(endpoint = c("keys", "municipality", "stats", "fraud")) 
     fraud = tibble::tribble(
       ~column, ~type, ~description,
       "AnoMes", "integer", "Reference year-month (YYYYMM format)",
-      "(varies)", "varies", "Fraud statistics columns - use API to see full schema"
+      "QtdePixcontestados", "numeric", "Contested PIX transactions",
+      "Qtdecontestacoesaceitas", "numeric", "Accepted contestations",
+      "Qtdecontestacoesrejeitadas", "numeric", "Rejected contestations",
+      "Qtdecontestacoesaceitasacada100mil", "numeric", "Accepted contestations per 100k transactions",
+      "QtdeUsuarioscommarcacoesdefraude", "numeric", "Users with fraud markings",
+      "QtdeChavesPixcommarcacoesdefraude", "numeric", "PIX keys with fraud markings",
+      "ValorPixcontestadosaceitos", "numeric", "Value of accepted contested PIX (BRL)",
+      "QuantidadedevolvidaintegralmentepormeiodoMED", "numeric", "Fully returned via MED (count)",
+      "ValorPixdevolvidosintegralmente", "numeric", "Fully returned via MED (BRL)",
+      "QuantidadedevolvidaparcialmentepormeiodoMED", "numeric", "Partially returned via MED (count)",
+      "ValorPixdevolvidosparcialmente", "numeric", "Partially returned via MED (BRL)",
+      "ValorPixresidualnaodevolvido", "numeric", "Residual value not returned (BRL)",
+      "Quantidadedenaodevolvidossaldoinsuficiente", "numeric", "Not returned: insufficient balance (count)",
+      "ValorPixnaodevolvidossaldoinsuficiente", "numeric", "Not returned: insufficient balance (BRL)",
+      "Quantidadedenaodevolvidoscontaencerrada", "numeric", "Not returned: closed account (count)",
+      "Valornaodevolvidoscontaencerrada", "numeric", "Not returned: closed account (BRL)",
+      "Quantidadedenaodevolvidosmotivosdiversos", "numeric", "Not returned: other reasons (count)",
+      "ValorPixnaodevolvidosmotivosdiversos", "numeric", "Not returned: other reasons (BRL)",
+      "PercentualdeDevolucao", "numeric", "Return percentage",
+      "QtdePixbloqueadoscautelarmenteeliberados", "numeric", "Precautionarily blocked and released (count)",
+      "ValorPixbloqueadoscautelarmenteeliberados", "numeric", "Precautionarily blocked and released (BRL)",
+      "QtdePixbloqueadoscautelarmenteedevolvidos", "numeric", "Precautionarily blocked and returned (count)",
+      "ValorPixbloqueadoscautelarmenteedevolvidos", "numeric", "Precautionarily blocked and returned (BRL)"
+    ),
+
+    cnae = tibble::tribble(
+      ~column, ~type, ~description,
+      "AnoMes", "integer", "Reference year-month (YYYYMM format)",
+      "tipopessoa", "character", "Receiver type: PF (Individual) or PJ (Legal Entity)",
+      "formainic", "character", "Initiation method (DICT, QRDN, QRES, MANU, INIC)",
+      "finalidade", "character", "Transaction purpose (Pix, Pix Saque, Pix Troco)",
+      "porte", "character", "Company size (e.g., Microempresa)",
+      "mei", "character", "Individual microentrepreneur flag (S/N)",
+      "cnssecao", "character", "CNAE section of the receiver's economic activity",
+      "mesmatit", "character", "Payer and receiver are the same person (S/N)",
+      "naturezarel", "character", "Transaction nature (P2P, P2B, B2P, B2B, ...)",
+      "qtpagador", "numeric", "Distinct payers",
+      "qtrecebedor", "numeric", "Distinct receivers",
+      "qtlanliq", "numeric", "Number of settled transactions",
+      "vllanliq", "numeric", "Value of settled transactions (BRL)",
+      "vlcompra", "numeric", "Purchase value (BRL, Pix Troco)",
+      "vldinespec", "numeric", "Cash value (BRL, Pix Saque / Pix Troco)"
+    ),
+
+    dict_users = tibble::tribble(
+      ~column, ~type, ~description,
+      "DataGraficosPix", "Date", "Reference date (last day of month)",
+      "qtdUsuariosPessoaFisica", "numeric", "Individual users (PF) registered in DICT",
+      "qtdUsuariosPessoaJuridica", "numeric", "Legal entity users (PJ) registered in DICT",
+      "qtdUsuariosCadastradosDICTTotal", "numeric", "Total users registered in DICT"
     )
   )
 }
@@ -230,6 +288,16 @@ pix_ping <- function() {
       name = "EstatisticasFraudesPix",
       endpoint = "EstatisticasFraudesPix",
       params = list(Database = "202501")
+    ),
+    list(
+      name = "CnaePorteRecebedor",
+      endpoint = "CnaePorteRecebedor",
+      params = list(Database = "202501")
+    ),
+    list(
+      name = "PixUsuariosCadastradosDICT",
+      endpoint = "PixUsuariosCadastradosDICT",
+      params = NULL
     )
   )
   
@@ -320,7 +388,7 @@ pix_ping <- function() {
 pix_timeout <- function(seconds = NULL) {
   if (is.null(seconds)) {
     # Get current timeout
-    timeout <- getOption("pixr.timeout", default = 120)
+    timeout <- getOption("pixr.timeout", default = PIX_DEFAULT_TIMEOUT)
     return(timeout)
   }
   
@@ -354,6 +422,8 @@ pix_timeout <- function(seconds = NULL) {
 #'   - TransacoesPixPorMunicipio: `list(DataBase = "YYYYMM")`
 #'   - EstatisticasTransacoesPix: `list(Database = "YYYYMM")`
 #'   - EstatisticasFraudesPix: `list(Database = "YYYYMM")`
+#'   - CnaePorteRecebedor: `list(Database = "YYYYMM")`
+#'   - PixUsuariosCadastradosDICT: no parameters (pass `NULL`)
 #' @param filter OData filter expression as a character string.
 #' @param select Character vector of columns to select.
 #' @param orderby OData orderby expression as a character string.
@@ -424,6 +494,8 @@ pix_query <- function(endpoint,
 #'   - TransacoesPixPorMunicipio: `list(DataBase = "YYYYMM")`
 #'   - EstatisticasTransacoesPix: `list(Database = "YYYYMM")`
 #'   - EstatisticasFraudesPix: `list(Database = "YYYYMM")`
+#'   - CnaePorteRecebedor: `list(Database = "YYYYMM")`
+#'   - PixUsuariosCadastradosDICT: no parameters (pass `NULL`)
 #' @param filter OData filter expression as a character string.
 #' @param select Character vector of columns to select.
 #' @param orderby OData orderby expression (e.g., "Column asc" or "Column desc").

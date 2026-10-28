@@ -54,6 +54,8 @@ navbar:
           href: articles/understanding-pix-data.html
         - text: "Working with OData Queries"
           href: articles/odata-queries.html
+        - text: "Receiver Profiles (CNAE) and DICT Users"
+          href: articles/receiver-profiles-dict-users.html
         - text: "---"
         - text: "Data Analysis Examples"
           href: articles/analysis-examples.html
@@ -101,7 +103,16 @@ reference:
     contents:
       - get_pix_fraud_stats
       - get_pix_fraud_stats_multi
-  
+
+  - title: "Receiver Profiles and DICT Users"
+    desc: >
+      Functions to retrieve PIX statistics by receiver economic activity
+      (CNAE), company size, and MEI status, and the series of users
+      registered in the DICT.
+    contents:
+      - get_pix_cnae_stats
+      - get_pix_dict_users
+
   - title: "API Utilities"
     desc: >
       Utility functions for working with the BCB PIX Open Data API,

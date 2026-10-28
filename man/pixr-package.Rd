@@ -18,18 +18,22 @@ fraud statistics.
 \item \code{\link[=get_pix_transactions_by_municipality]{get_pix_transactions_by_municipality()}}: Get PIX transactions by municipality
 \item \code{\link[=get_pix_transaction_stats]{get_pix_transaction_stats()}}: Get detailed PIX transaction statistics
 \item \code{\link[=get_pix_fraud_stats]{get_pix_fraud_stats()}}: Get fraud statistics (MED)
+\item \code{\link[=get_pix_cnae_stats]{get_pix_cnae_stats()}}: Get statistics by receiver CNAE section and size
+\item \code{\link[=get_pix_dict_users]{get_pix_dict_users()}}: Get the monthly series of users registered in DICT
 }
 }
 
 \section{API Endpoints}{
 
 
-The package provides access to 4 endpoints, each with different parameters:\tabular{lll}{
+The package provides access to 6 endpoints, each with different parameters:\tabular{lll}{
    Endpoint \tab Parameter \tab Format \cr
    ChavesPix \tab Data \tab YYYY-MM-DD \cr
    TransacoesPixPorMunicipio \tab DataBase \tab YYYYMM \cr
    EstatisticasTransacoesPix \tab Database \tab YYYYMM \cr
    EstatisticasFraudesPix \tab Database \tab YYYYMM \cr
+   CnaePorteRecebedor \tab Database \tab YYYYMM \cr
+   PixUsuariosCadastradosDICT \tab (none) \tab - \cr
 }
 }
 
@@ -88,8 +92,8 @@ Authors:
   \item André Leite \email{leite@castlab.org} (\href{https://orcid.org/0000-0002-4718-9766}{ORCID})
   \item Marcos Wasiliew \email{marcos.wasiliew@gmail.com} (\href{https://orcid.org/0009-0004-4694-3159}{ORCID})
   \item Hugo Vasconcelos \email{hugo.vasconcelos@ufpe.br} (\href{https://orcid.org/0000-0001-6249-0920}{ORCID})
-  \item Diogo Bezerra \email{diogo.bezerra@ufpe.br} (\href{https://orcid.org/0000-0002-1216-8674}{ORCID})
   \item Carlos Amorim \email{carlos.agaf@ufpe.br} (\href{https://orcid.org/0000-0001-6315-8305}{ORCID})
+  \item Diogo Bezerra \email{diogo.bezerra@ufpe.br} (\href{https://orcid.org/0000-0002-1216-8674}{ORCID})
   \item Júlia Nascimento Barreto \email{juliabarreto@gd.seplag.pe.gov.br} (\href{https://orcid.org/0009-0004-2851-7770}{ORCID})
 }
 

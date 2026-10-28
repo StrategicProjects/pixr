@@ -4,11 +4,13 @@
 \alias{pix_columns}
 \title{Get Column Information for a PIX Endpoint}
 \usage{
-pix_columns(endpoint = c("keys", "municipality", "stats", "fraud"))
+pix_columns(
+  endpoint = c("keys", "municipality", "stats", "fraud", "cnae", "dict_users")
+)
 }
 \arguments{
 \item{endpoint}{Character string specifying the endpoint. One of:
-"keys", "municipality", "stats", or "fraud".}
+"keys", "municipality", "stats", "fraud", "cnae", or "dict_users".}
 }
 \value{
 A \link[tibble:tibble]{tibble::tibble} with column names, types, and descriptions.
@@ -21,4 +23,6 @@ pix_columns("keys")
 pix_columns("municipality")
 pix_columns("stats")
 pix_columns("fraud")
+pix_columns("cnae")
+pix_columns("dict_users")
 }
