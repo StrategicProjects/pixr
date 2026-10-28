@@ -18,7 +18,7 @@ get_pix_fraud_stats_multi(databases, ...)
 - ...:
 
   Additional arguments passed to
-  [`get_pix_fraud_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_fraud_stats.md).
+  [`get_pix_fraud_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_fraud_stats.md).
 
 ## Value
 
@@ -40,5 +40,5 @@ q3_fraud <- get_pix_fraud_stats_multi(
 #> ℹ Fetching 202507...
 #> ℹ Fetching 202508...
 #> ℹ Fetching 202509...
-#> ✔ Retrieved 27 total records from 3 months
+#> ✔ Retrieved 39 total records from 3 months
 ```

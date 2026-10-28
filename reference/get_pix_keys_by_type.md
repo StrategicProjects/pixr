@@ -37,17 +37,17 @@ get_pix_keys_by_type(date = "2025-12-01")
 #> ── Fetching PIX Keys Stock Data ──
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/ChavesPix(Data=@Data)?$format=json&@Data='2025-12-01'
-#> ✔ Retrieved 55496 records
+#> ✔ Retrieved 61557 records
 #> ✔ Summarized by key type
 #> # A tibble: 8 × 4
 #>   TipoChave NaturezaUsuario total_keys n_institutions
 #>   <chr>     <chr>                <dbl>          <int>
-#> 1 Aleatória PF              4204403973            837
-#> 2 Celular   PF              1428104597            804
-#> 3 CPF       PF              1356376191            780
-#> 4 e-mail    PF              1202427939            827
-#> 5 Aleatória PJ               213745218            868
-#> 6 CNPJ      PJ               140590615            814
-#> 7 e-mail    PJ                48102123            812
-#> 8 Celular   PJ                32058517            740
+#> 1 Aleatória PF              4705251946            839
+#> 2 Celular   PF              1590807039            808
+#> 3 CPF       PF              1510290145            786
+#> 4 e-mail    PF              1341675676            829
+#> 5 Aleatória PJ               239744782            870
+#> 6 CNPJ      PJ               156917010            816
+#> 7 e-mail    PJ                53409123            816
+#> 8 Celular   PJ                35669898            743
 ```

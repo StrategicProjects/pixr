@@ -497,11 +497,11 @@ process_quarter <- function(year, quarter) {
 ## See Also
 
 - [Introduction to
-  pixr](https://monitoramento.pe.gov.br/pixr/articles/pixr.md) - Getting
-  started
+  pixr](https://strategicprojects.github.io/pixr/articles/pixr.md) -
+  Getting started
 - [Understanding PIX
-  Data](https://monitoramento.pe.gov.br/pixr/articles/understanding-pix-data.md) -
+  Data](https://strategicprojects.github.io/pixr/articles/understanding-pix-data.md) -
   Data structure
 - [Working with OData
-  Queries](https://monitoramento.pe.gov.br/pixr/articles/odata-queries.md) -
+  Queries](https://strategicprojects.github.io/pixr/articles/odata-queries.md) -
   Advanced queries with filters

@@ -1,7 +1,7 @@
 # Get PIX Transactions by State
 
 A convenience wrapper around
-[`get_pix_transactions_by_municipality()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transactions_by_municipality.md)
+[`get_pix_transactions_by_municipality()`](https://strategicprojects.github.io/pixr/reference/get_pix_transactions_by_municipality.md)
 that aggregates data at the state level.
 
 ## Usage
@@ -38,6 +38,6 @@ states <- get_pix_transactions_by_state(database = "202512")
 #> ── Fetching PIX Transactions by Municipality ──
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/TransacoesPixPorMunicipio(DataBase=@DataBase)?$format=json&@DataBase='202512'
-#> ✔ Retrieved 55720 records
-#> ✔ Aggregated data for 280 states
+#> ✔ Retrieved 61292 records
+#> ✔ Aggregated data for 308 states
 ```

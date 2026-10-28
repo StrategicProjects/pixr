@@ -109,7 +109,7 @@ keys <- get_pix_keys(date = "2025-12-01")
 #> ── Fetching PIX Keys Stock Data ──
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/ChavesPix(Data=@Data)?$format=json&@Data='2025-12-01'
-#> ✔ Retrieved 55496 records
+#> ✔ Retrieved 61557 records
 
 # Filter by key type and order by quantity
 cpf_keys <- get_pix_keys(

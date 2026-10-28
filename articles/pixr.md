@@ -43,10 +43,10 @@ Each endpoint requires a specific date parameter:
 
 | Endpoint | Parameter | Format | R Function |
 |----|----|----|----|
-| ChavesPix | `date` | YYYY-MM-DD | [`get_pix_keys()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_keys.md) |
-| TransacoesPixPorMunicipio | `database` | YYYYMM | [`get_pix_transactions_by_municipality()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transactions_by_municipality.md) |
-| EstatisticasTransacoesPix | `database` | YYYYMM | [`get_pix_transaction_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transaction_stats.md) |
-| EstatisticasFraudesPix | `database` | YYYYMM | [`get_pix_fraud_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_fraud_stats.md) |
+| ChavesPix | `date` | YYYY-MM-DD | [`get_pix_keys()`](https://strategicprojects.github.io/pixr/reference/get_pix_keys.md) |
+| TransacoesPixPorMunicipio | `database` | YYYYMM | [`get_pix_transactions_by_municipality()`](https://strategicprojects.github.io/pixr/reference/get_pix_transactions_by_municipality.md) |
+| EstatisticasTransacoesPix | `database` | YYYYMM | [`get_pix_transaction_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_transaction_stats.md) |
+| EstatisticasFraudesPix | `database` | YYYYMM | [`get_pix_fraud_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_fraud_stats.md) |
 
 ``` r
 
@@ -185,7 +185,7 @@ get_pix_transaction_stats(
 | Multiple conditions | `"NATUREZA eq 'P2P' and PAG_REGIAO eq 'SUDESTE'"` |
 
 See the [Working with OData
-Queries](https://monitoramento.pe.gov.br/pixr/articles/odata-queries.md)
+Queries](https://strategicprojects.github.io/pixr/articles/odata-queries.md)
 article for complete documentation.
 
 ## Working with the Data
@@ -245,7 +245,7 @@ data <- get_pix_keys(date = "2025-12-01", verbose = FALSE)
 ## Debugging
 
 Use
-[`pix_url()`](https://monitoramento.pe.gov.br/pixr/reference/pix_url.md)
+[`pix_url()`](https://strategicprojects.github.io/pixr/reference/pix_url.md)
 to see the URL that would be called:
 
 ``` r
@@ -263,13 +263,13 @@ pix_url(
 ## Next Steps
 
 - Read the [Understanding PIX
-  Data](https://monitoramento.pe.gov.br/pixr/articles/understanding-pix-data.md)
+  Data](https://strategicprojects.github.io/pixr/articles/understanding-pix-data.md)
   article for detailed information about the data structure
 - Check [Working with OData
-  Queries](https://monitoramento.pe.gov.br/pixr/articles/odata-queries.md)
+  Queries](https://strategicprojects.github.io/pixr/articles/odata-queries.md)
   for advanced filtering and querying
 - See [Data Analysis
-  Examples](https://monitoramento.pe.gov.br/pixr/articles/analysis-examples.md)
+  Examples](https://strategicprojects.github.io/pixr/articles/analysis-examples.md)
   for practical use cases
 
 ## References

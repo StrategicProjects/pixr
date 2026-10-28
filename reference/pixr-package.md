@@ -7,30 +7,38 @@ breakdowns, and fraud statistics.
 
 ## Main Functions
 
-- [`get_pix_keys()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_keys.md):
+- [`get_pix_keys()`](https://strategicprojects.github.io/pixr/reference/get_pix_keys.md):
   Retrieve PIX keys stock by participant
 
-- [`get_pix_transactions_by_municipality()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transactions_by_municipality.md):
+- [`get_pix_transactions_by_municipality()`](https://strategicprojects.github.io/pixr/reference/get_pix_transactions_by_municipality.md):
   Get PIX transactions by municipality
 
-- [`get_pix_transaction_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transaction_stats.md):
+- [`get_pix_transaction_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_transaction_stats.md):
   Get detailed PIX transaction statistics
 
-- [`get_pix_fraud_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_fraud_stats.md):
+- [`get_pix_fraud_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_fraud_stats.md):
   Get fraud statistics (MED)
+
+- [`get_pix_cnae_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_cnae_stats.md):
+  Get statistics by receiver CNAE section and size
+
+- [`get_pix_dict_users()`](https://strategicprojects.github.io/pixr/reference/get_pix_dict_users.md):
+  Get the monthly series of users registered in DICT
 
 ## API Endpoints
 
-The package provides access to 4 endpoints, each with different
+The package provides access to 6 endpoints, each with different
 parameters:
 
-|                           |           |            |
-|---------------------------|-----------|------------|
-| Endpoint                  | Parameter | Format     |
-| ChavesPix                 | Data      | YYYY-MM-DD |
-| TransacoesPixPorMunicipio | DataBase  | YYYYMM     |
-| EstatisticasTransacoesPix | Database  | YYYYMM     |
-| EstatisticasFraudesPix    | Database  | YYYYMM     |
+|                            |           |            |
+|----------------------------|-----------|------------|
+| Endpoint                   | Parameter | Format     |
+| ChavesPix                  | Data      | YYYY-MM-DD |
+| TransacoesPixPorMunicipio  | DataBase  | YYYYMM     |
+| EstatisticasTransacoesPix  | Database  | YYYYMM     |
+| EstatisticasFraudesPix     | Database  | YYYYMM     |
+| CnaePorteRecebedor         | Database  | YYYYMM     |
+| PixUsuariosCadastradosDICT | (none)    | \-         |
 
 ## API Information
 
@@ -71,6 +79,8 @@ Useful links:
 
 - <https://github.com/StrategicProjects/pixr>
 
+- <https://strategicprojects.github.io/pixr/>
+
 - Report bugs at <https://github.com/StrategicProjects/pixr/issues>
 
 ## Author
@@ -89,11 +99,11 @@ Authors:
 - Hugo Vasconcelos <hugo.vasconcelos@ufpe.br>
   ([ORCID](https://orcid.org/0000-0001-6249-0920))
 
-- Diogo Bezerra <diogo.bezerra@ufpe.br>
-  ([ORCID](https://orcid.org/0000-0002-1216-8674))
-
 - Carlos Amorim <carlos.agaf@ufpe.br>
   ([ORCID](https://orcid.org/0000-0001-6315-8305))
+
+- Diogo Bezerra <diogo.bezerra@ufpe.br>
+  ([ORCID](https://orcid.org/0000-0002-1216-8674))
 
 - Júlia Nascimento Barreto <juliabarreto@gd.seplag.pe.gov.br>
   ([ORCID](https://orcid.org/0009-0004-2851-7770))

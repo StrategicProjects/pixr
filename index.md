@@ -13,6 +13,10 @@ statistics.
 
 ``` r
 
+# From CRAN
+install.packages("pixr")
+
+# Development version
 # install.packages("remotes")
 remotes::install_github("StrategicProjects/pixr")
 ```
@@ -39,10 +43,12 @@ Each endpoint has a different parameter name and format:
 
 | Endpoint | Parameter | Format | R Function |
 |----|----|----|----|
-| `ChavesPix` | `Data` | `YYYY-MM-DD` | [`get_pix_keys()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_keys.md) |
-| `TransacoesPixPorMunicipio` | `DataBase` | `YYYYMM` | [`get_pix_transactions_by_municipality()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transactions_by_municipality.md) |
-| `EstatisticasTransacoesPix` | `Database` | `YYYYMM` | [`get_pix_transaction_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transaction_stats.md) |
-| `EstatisticasFraudesPix` | `Database` | `YYYYMM` | [`get_pix_fraud_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_fraud_stats.md) |
+| `ChavesPix` | `Data` | `YYYY-MM-DD` | [`get_pix_keys()`](https://strategicprojects.github.io/pixr/reference/get_pix_keys.md) |
+| `TransacoesPixPorMunicipio` | `DataBase` | `YYYYMM` | [`get_pix_transactions_by_municipality()`](https://strategicprojects.github.io/pixr/reference/get_pix_transactions_by_municipality.md) |
+| `EstatisticasTransacoesPix` | `Database` | `YYYYMM` | [`get_pix_transaction_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_transaction_stats.md) |
+| `EstatisticasFraudesPix` | `Database` | `YYYYMM` | [`get_pix_fraud_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_fraud_stats.md) |
+| `CnaePorteRecebedor` | `Database` | `YYYYMM` | [`get_pix_cnae_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_cnae_stats.md) |
+| `PixUsuariosCadastradosDICT` | (none) | \- | [`get_pix_dict_users()`](https://strategicprojects.github.io/pixr/reference/get_pix_dict_users.md) |
 
 ## Quick Start
 
@@ -117,26 +123,26 @@ cpf_keys <- get_pix_keys(
 
 | Function | Description |
 |----|----|
-| [`get_pix_keys()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_keys.md) | PIX keys stock by participant |
-| [`get_pix_keys_summary()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_keys_summary.md) | Top institutions by key count |
-| [`get_pix_keys_by_type()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_keys_by_type.md) | Keys aggregated by type |
-| [`get_pix_transaction_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transaction_stats.md) | Detailed transaction statistics |
-| [`get_pix_summary()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_summary.md) | Aggregated summaries by grouping |
-| [`get_pix_transaction_stats_multi()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transaction_stats_multi.md) | Stats for multiple months |
-| [`get_pix_transactions_by_municipality()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transactions_by_municipality.md) | Transactions by municipality |
-| [`get_pix_transactions_by_state()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transactions_by_state.md) | Aggregated by state |
-| [`get_pix_transactions_by_region()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_transactions_by_region.md) | Aggregated by region |
-| [`get_pix_fraud_stats()`](https://monitoramento.pe.gov.br/pixr/reference/get_pix_fraud_stats.md) | Fraud statistics (MED) |
+| [`get_pix_keys()`](https://strategicprojects.github.io/pixr/reference/get_pix_keys.md) | PIX keys stock by participant |
+| [`get_pix_keys_summary()`](https://strategicprojects.github.io/pixr/reference/get_pix_keys_summary.md) | Top institutions by key count |
+| [`get_pix_keys_by_type()`](https://strategicprojects.github.io/pixr/reference/get_pix_keys_by_type.md) | Keys aggregated by type |
+| [`get_pix_transaction_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_transaction_stats.md) | Detailed transaction statistics |
+| [`get_pix_summary()`](https://strategicprojects.github.io/pixr/reference/get_pix_summary.md) | Aggregated summaries by grouping |
+| [`get_pix_transaction_stats_multi()`](https://strategicprojects.github.io/pixr/reference/get_pix_transaction_stats_multi.md) | Stats for multiple months |
+| [`get_pix_transactions_by_municipality()`](https://strategicprojects.github.io/pixr/reference/get_pix_transactions_by_municipality.md) | Transactions by municipality |
+| [`get_pix_transactions_by_state()`](https://strategicprojects.github.io/pixr/reference/get_pix_transactions_by_state.md) | Aggregated by state |
+| [`get_pix_transactions_by_region()`](https://strategicprojects.github.io/pixr/reference/get_pix_transactions_by_region.md) | Aggregated by region |
+| [`get_pix_fraud_stats()`](https://strategicprojects.github.io/pixr/reference/get_pix_fraud_stats.md) | Fraud statistics (MED) |
 
 ### Utility Functions
 
 | Function | Description |
 |----|----|
-| [`pix_endpoints()`](https://monitoramento.pe.gov.br/pixr/reference/pix_endpoints.md) | List available API endpoints |
-| [`pix_columns()`](https://monitoramento.pe.gov.br/pixr/reference/pix_columns.md) | Column info for each endpoint |
-| [`pix_timeout()`](https://monitoramento.pe.gov.br/pixr/reference/pix_timeout.md) | Get or set request timeout |
-| [`pix_url()`](https://monitoramento.pe.gov.br/pixr/reference/pix_url.md) | Build API URL for debugging |
-| [`pix_query()`](https://monitoramento.pe.gov.br/pixr/reference/pix_query.md) | Custom OData queries |
+| [`pix_endpoints()`](https://strategicprojects.github.io/pixr/reference/pix_endpoints.md) | List available API endpoints |
+| [`pix_columns()`](https://strategicprojects.github.io/pixr/reference/pix_columns.md) | Column info for each endpoint |
+| [`pix_timeout()`](https://strategicprojects.github.io/pixr/reference/pix_timeout.md) | Get or set request timeout |
+| [`pix_url()`](https://strategicprojects.github.io/pixr/reference/pix_url.md) | Build API URL for debugging |
+| [`pix_query()`](https://strategicprojects.github.io/pixr/reference/pix_query.md) | Custom OData queries |
 
 ## Examples
 

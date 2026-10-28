@@ -37,6 +37,10 @@ pix_url(
 
   - EstatisticasFraudesPix: `list(Database = "YYYYMM")`
 
+  - CnaePorteRecebedor: `list(Database = "YYYYMM")`
+
+  - PixUsuariosCadastradosDICT: no parameters (pass `NULL`)
+
 - filter:
 
   OData filter expression as a character string.

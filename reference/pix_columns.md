@@ -6,7 +6,9 @@ endpoint.
 ## Usage
 
 ``` r
-pix_columns(endpoint = c("keys", "municipality", "stats", "fraud"))
+pix_columns(
+  endpoint = c("keys", "municipality", "stats", "fraud", "cnae", "dict_users")
+)
 ```
 
 ## Arguments
@@ -14,7 +16,7 @@ pix_columns(endpoint = c("keys", "municipality", "stats", "fraud"))
 - endpoint:
 
   Character string specifying the endpoint. One of: "keys",
-  "municipality", "stats", or "fraud".
+  "municipality", "stats", "fraud", "cnae", or "dict_users".
 
 ## Value
 
@@ -74,9 +76,45 @@ pix_columns("stats")
 #> 11 VALOR          numeric   Total transaction value (BRL)                       
 #> 12 QUANTIDADE     numeric   Number of transactions                              
 pix_columns("fraud")
-#> # A tibble: 2 × 3
-#>   column   type    description                                          
-#>   <chr>    <chr>   <chr>                                                
-#> 1 AnoMes   integer Reference year-month (YYYYMM format)                 
-#> 2 (varies) varies  Fraud statistics columns - use API to see full schema
+#> # A tibble: 24 × 3
+#>    column                                       type    description             
+#>    <chr>                                        <chr>   <chr>                   
+#>  1 AnoMes                                       integer Reference year-month (Y…
+#>  2 QtdePixcontestados                           numeric Contested PIX transacti…
+#>  3 Qtdecontestacoesaceitas                      numeric Accepted contestations  
+#>  4 Qtdecontestacoesrejeitadas                   numeric Rejected contestations  
+#>  5 Qtdecontestacoesaceitasacada100mil           numeric Accepted contestations …
+#>  6 QtdeUsuarioscommarcacoesdefraude             numeric Users with fraud markin…
+#>  7 QtdeChavesPixcommarcacoesdefraude            numeric PIX keys with fraud mar…
+#>  8 ValorPixcontestadosaceitos                   numeric Value of accepted conte…
+#>  9 QuantidadedevolvidaintegralmentepormeiodoMED numeric Fully returned via MED …
+#> 10 ValorPixdevolvidosintegralmente              numeric Fully returned via MED …
+#> # ℹ 14 more rows
+pix_columns("cnae")
+#> # A tibble: 15 × 3
+#>    column      type      description                                        
+#>    <chr>       <chr>     <chr>                                              
+#>  1 AnoMes      integer   Reference year-month (YYYYMM format)               
+#>  2 tipopessoa  character Receiver type: PF (Individual) or PJ (Legal Entity)
+#>  3 formainic   character Initiation method (DICT, QRDN, QRES, MANU, INIC)   
+#>  4 finalidade  character Transaction purpose (Pix, Pix Saque, Pix Troco)    
+#>  5 porte       character Company size (e.g., Microempresa)                  
+#>  6 mei         character Individual microentrepreneur flag (S/N)            
+#>  7 cnssecao    character CNAE section of the receiver's economic activity   
+#>  8 mesmatit    character Payer and receiver are the same person (S/N)       
+#>  9 naturezarel character Transaction nature (P2P, P2B, B2P, B2B, ...)       
+#> 10 qtpagador   numeric   Distinct payers                                    
+#> 11 qtrecebedor numeric   Distinct receivers                                 
+#> 12 qtlanliq    numeric   Number of settled transactions                     
+#> 13 vllanliq    numeric   Value of settled transactions (BRL)                
+#> 14 vlcompra    numeric   Purchase value (BRL, Pix Troco)                    
+#> 15 vldinespec  numeric   Cash value (BRL, Pix Saque / Pix Troco)            
+pix_columns("dict_users")
+#> # A tibble: 4 × 3
+#>   column                          type    description                           
+#>   <chr>                           <chr>   <chr>                                 
+#> 1 DataGraficosPix                 Date    Reference date (last day of month)    
+#> 2 qtdUsuariosPessoaFisica         numeric Individual users (PF) registered in D…
+#> 3 qtdUsuariosPessoaJuridica       numeric Legal entity users (PJ) registered in…
+#> 4 qtdUsuariosCadastradosDICTTotal numeric Total users registered in DICT        
 ```

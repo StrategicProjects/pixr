@@ -31,6 +31,7 @@ get_pix_fraud_stats(
 - columns:
 
   Character vector of columns to return. If NULL, returns all columns.
+  See `pix_columns("fraud")` for the full schema.
 
 - top:
 
@@ -81,6 +82,6 @@ fraud <- get_pix_fraud_stats(database = "202509", top = 100)
 #> ── Fetching PIX Fraud Statistics (MED) ──
 #> 
 #> ℹ URL: https://olinda.bcb.gov.br/olinda/servico/Pix_DadosAbertos/versao/v1/odata/EstatisticasFraudesPix(Database=@Database)?$format=json&@Database='202509'&$top=100
-#> ✔ Retrieved 8 records
+#> ✔ Retrieved 12 records
  # \dontrun{}
 ```

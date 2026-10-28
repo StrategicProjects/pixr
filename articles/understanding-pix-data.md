@@ -137,7 +137,7 @@ sp_data <- get_pix_transactions_by_municipality(
 | `QT_PES_RecebedorPJ` | Distinct legal entity receivers |
 
 **Note:** Values are in Brazilian Real (BRL). Use
-[`format_brl()`](https://monitoramento.pe.gov.br/pixr/reference/format_brl.md)
+[`format_brl()`](https://strategicprojects.github.io/pixr/reference/format_brl.md)
 for currency formatting.
 
 ### 3. Transaction Statistics (EstatisticasTransacoesPix)
@@ -354,10 +354,10 @@ bb_keys <- get_pix_keys(
 ## See Also
 
 - [Working with OData
-  Queries](https://monitoramento.pe.gov.br/pixr/articles/odata-queries.md) -
+  Queries](https://strategicprojects.github.io/pixr/articles/odata-queries.md) -
   Advanced query techniques with filters
 - [Data Analysis
-  Examples](https://monitoramento.pe.gov.br/pixr/articles/analysis-examples.md) -
+  Examples](https://strategicprojects.github.io/pixr/articles/analysis-examples.md) -
   Practical examples
 
 ## References

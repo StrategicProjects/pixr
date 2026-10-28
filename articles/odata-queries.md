@@ -267,7 +267,7 @@ final_data <- dplyr::bind_rows(all_data)
 ## Custom Queries with pix_query()
 
 For advanced use cases, use
-[`pix_query()`](https://monitoramento.pe.gov.br/pixr/reference/pix_query.md)
+[`pix_query()`](https://strategicprojects.github.io/pixr/reference/pix_query.md)
 with raw OData parameters:
 
 ``` r
@@ -295,7 +295,7 @@ pix_query(
 ## Building and Debugging URLs
 
 Use
-[`pix_url()`](https://monitoramento.pe.gov.br/pixr/reference/pix_url.md)
+[`pix_url()`](https://strategicprojects.github.io/pixr/reference/pix_url.md)
 to see the URL that would be called:
 
 ``` r
@@ -453,13 +453,13 @@ get_pix_keys(date = "2025-12-01", verbose = FALSE)
 ## See Also
 
 - [Getting
-  Started](https://monitoramento.pe.gov.br/pixr/articles/pixr.md) -
+  Started](https://strategicprojects.github.io/pixr/articles/pixr.md) -
   Package introduction
 - [Understanding PIX
-  Data](https://monitoramento.pe.gov.br/pixr/articles/understanding-pix-data.md) -
+  Data](https://strategicprojects.github.io/pixr/articles/understanding-pix-data.md) -
   Data structure details
 - [Data Analysis
-  Examples](https://monitoramento.pe.gov.br/pixr/articles/analysis-examples.md) -
+  Examples](https://strategicprojects.github.io/pixr/articles/analysis-examples.md) -
   Practical use cases
 
 ## References
