@@ -159,6 +159,7 @@ articles:
     contents:
       - understanding-pix-data
       - odata-queries
+      - receiver-profiles-dict-users
   
   - title: Examples
     desc: Practical examples and use cases
